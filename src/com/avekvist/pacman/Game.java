@@ -1,39 +1,42 @@
 package com.avekvist.pacman;
 
-import com.avekvist.pacman.core.GameObject;
+import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Window;
-import com.avekvist.pacman.objects.PacMan;
-import com.avekvist.pacman.objects.Pinky;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 public class Game extends Canvas implements Runnable {
-    private ArrayList<GameObject> gameObjects;
     private boolean isRunning;
     private Window window;
     private Thread thread;
     private String title;
+    private BufferedImage image;
+    private int[] pixels;
 
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 480;
+    public static int WIDTH;
+    public static int HEIGHT;
 
-    public Game(String title, int width, int height) {
+    Level level;
+
+    public Game(String title) {
         this.title = title;
 
-        window = new Window(title, width, height);
-        window.getFrame().add(this);
-
-        gameObjects = new ArrayList<>();
         setRunning(false);
 
-        PacMan pacman = new PacMan();
-        add(pacman);
-        addKeyListener(pacman);
+        level = new Level("/level1.png", 12 * 3);
+        addKeyListener(level.getPacMan());
 
-        add(new Pinky());
+        WIDTH = level.getWidth();
+        HEIGHT = level.getHeight();
+
+        window = new Window(title, WIDTH, HEIGHT);
+        window.getFrame().add(this);
+
+        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
     }
 
     public synchronized void start() {
@@ -89,20 +92,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void update() {
-        if(gameObjects != null) {
-            Iterator<GameObject> gameObjectsIterator = gameObjects.iterator();
-
-            for (Iterator<GameObject> it = gameObjectsIterator; it.hasNext(); ) {
-                GameObject gameObject = it.next();
-                if (!gameObject.isAlive()) {
-                    gameObjectsIterator.remove();
-                    continue;
-                }
-
-                if(gameObject != null)
-                    gameObject.update();
-            }
-        }
+        level.update();
     }
 
     private void render() {
@@ -114,7 +104,9 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
 
-        window.render(g, gameObjects);
+        level.render(g, pixels);
+
+        g.drawImage(image, 0, 0, WIDTH, HEIGHT, null);
 
         g.dispose();
         bs.show();
@@ -128,13 +120,8 @@ public class Game extends Canvas implements Runnable {
         isRunning = running;
     }
 
-    public void add(GameObject gameObject) {
-        if(gameObject != null)
-            gameObjects.add(gameObject);
-    }
-
     public static void main(String[] args) {
-        Game game = new Game("PAC-MAN", WIDTH, HEIGHT);
+        Game game = new Game("PAC-MAN");
 
         game.start();
     }

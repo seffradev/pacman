@@ -20,6 +20,7 @@ public class PacMan extends GameObject implements KeyListener {
 
     private boolean isDying;
     private boolean isMoving;
+    private boolean isPoweredUp;
 
     public PacMan() {
         isDying = false;
@@ -44,10 +45,11 @@ public class PacMan extends GameObject implements KeyListener {
         deathSprite.setAnimation(new Animation(graphics, 4, 7, 12 * 3, 12 * 3, 12 * 3 * 12, 12 * 3));
         deathSprite.setAnimationDelay(0.1);
 
-        position = new Vector2(220, 220);
+        setPosition(new Vector2(120, 64));
         setDirection(Direction.RIGHT);
         setSprite(rightSprite);
         setAlive(true);
+        setMaxSpeed(2);
     }
 
     public void update() {
@@ -56,25 +58,25 @@ public class PacMan extends GameObject implements KeyListener {
         if(!isDying) {
             switch (getDirection()) {
                 case UP:
-                    setVelocity(new Vector2(0, -1));
+                    setVelocity(new Vector2(0, -getMaxSpeed()));
 
                     if (getSprite() != upSprite)
                         setSprite(upSprite);
                     break;
                 case DOWN:
-                    setVelocity(new Vector2(0, 1));
+                    setVelocity(new Vector2(0, getMaxSpeed()));
 
                     if (getSprite() != downSprite)
                         setSprite(downSprite);
                     break;
                 case LEFT:
-                    setVelocity(new Vector2(-1, 0));
+                    setVelocity(new Vector2(-getMaxSpeed(), 0));
 
                     if (getSprite() != leftSprite)
                         setSprite(leftSprite);
                     break;
                 case RIGHT:
-                    setVelocity(new Vector2(1, 0));
+                    setVelocity(new Vector2(getMaxSpeed(), 0));
 
                     if (getSprite() != rightSprite)
                         setSprite(rightSprite);
@@ -85,10 +87,9 @@ public class PacMan extends GameObject implements KeyListener {
                 setSprite(deathSprite);
                 setVelocity(new Vector2(0, 0));
             } else {
-                if (getSprite().getAnimationIndex() > getSprite().getAnimation().getNumOfIndices() - 1) {
+                if (getSprite().getAnimationIndex() >= getSprite().getAnimation().getNumOfIndices() - 1) {
                     getSprite().setAnimationIndex(0);
-                    System.out.println("You died");
-                    isDying = false;
+                    setAlive(false);
                 }
             }
         }
@@ -118,5 +119,21 @@ public class PacMan extends GameObject implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public boolean isMoving() {
+        return isMoving;
+    }
+
+    public void setMoving(boolean moving) {
+        isMoving = moving;
+    }
+
+    public boolean isPoweredUp() {
+        return isPoweredUp;
+    }
+
+    public void setPoweredUp(boolean poweredUp) {
+        isPoweredUp = poweredUp;
     }
 }

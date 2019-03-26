@@ -34,8 +34,11 @@ public class Animation {
 
         for(int ty = 0; ty < height; ty++) {
             for(int tx = 0; tx < width; tx++) {
-                if(tx + (int) x + (ty + (int) y) * WIDTH < WIDTH * HEIGHT && tx + (int) x + (ty + (int) y) * WIDTH >= 0)
-                    pixels[tx + (int) x + (ty + (int) y) * WIDTH] = this.pixels[tx + (ty) * animationWidth + index * animationHeight];
+                if(tx + (int) x + (ty + (int) y) * WIDTH < WIDTH * HEIGHT && tx + (int) x + (ty + (int) y) * WIDTH >= 0) {
+                    int i = tx + (ty) * animationWidth + index * animationHeight;
+                    if(this.pixels[i] != 0xFF000000)
+                        pixels[tx + (int) x + (ty + (int) y) * WIDTH] = this.pixels[i];
+                }
             }
         }
     }

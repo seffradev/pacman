@@ -20,10 +20,11 @@ public class Ghost extends GameObject {
     private boolean vulnerable;
 
     public Ghost() {
-        setPosition(new Vector2(0, 0));
+
     }
 
     protected void init() {
+        setMaxSpeed(1);
         setDirection(Direction.RIGHT);
         setSprite(rightSprite);
         setAlive(true);
@@ -70,22 +71,22 @@ public class Ghost extends GameObject {
                 case UP:
                     if(getSprite() != upSprite)
                         setSprite(upSprite);
-                    setVelocity(new Vector2(0, -1));
+                    setVelocity(new Vector2(0, -getMaxSpeed()));
                     break;
                 case DOWN:
                     if(getSprite() != downSprite)
                         setSprite(downSprite);
-                    setVelocity(new Vector2(0, 1));
+                    setVelocity(new Vector2(0, getMaxSpeed()));
                     break;
                 case LEFT:
                     if(getSprite() != leftSprite)
                         setSprite(leftSprite);
-                    setVelocity(new Vector2(-1, 0));
+                    setVelocity(new Vector2(-getMaxSpeed(), 0));
                     break;
                 case RIGHT:
                     if(getSprite() != rightSprite)
                         setSprite(rightSprite);
-                    setVelocity(new Vector2(1, 0));
+                    setVelocity(new Vector2(getMaxSpeed(), 0));
                     break;
             }
         }

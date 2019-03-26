@@ -16,9 +16,12 @@ public class Sprite {
         count = 0;
         animationDirection = 1;
         animationDelay = 0;
+        dimensions = new Vector2(0, 0);
 
-        if(animation != null)
+        if(animation != null) {
             numOfIndices = animation.getNumOfIndices();
+            dimensions = new Vector2(animation.getIndexWidth(), animation.getIndexHeight());
+        }
     }
 
     public void render(int[] pixels, double x, double y) {
@@ -58,7 +61,11 @@ public class Sprite {
 
     public void setAnimation(Animation animation) {
         this.animation = animation;
-        numOfIndices = animation.getNumOfIndices();
+
+        if(animation != null) {
+            numOfIndices = animation.getNumOfIndices();
+            dimensions = new Vector2(animation.getIndexWidth(), animation.getIndexHeight());
+        }
     }
 
     public void setAnimationDelay(double seconds) {
