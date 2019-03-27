@@ -11,10 +11,12 @@ public class GameObject {
     private Vector2 velocity;
     private Direction direction;
     private double maxSpeed;
+    private String type;
 
     public GameObject() {
         position = new Vector2(0, 0);
         velocity = new Vector2(0, 0);
+        setAlive(true);
     }
 
     public void update() {
@@ -35,7 +37,7 @@ public class GameObject {
     // Check for objects at a specific position instead of checking for a specific object at a position.
     // e.g getObjectAt(Vector2 position) -> GameObject
     // instead of collidesAt(Vector2 position, GameObject gameObject) -> boolean
-
+/*
     public boolean collides(GameObject gameObject) {
         Vector2 myPosition = getPosition();
         int myX = (int) myPosition.getX();
@@ -61,7 +63,8 @@ public class GameObject {
 
         return topLeft || topRight || bottomLeft || bottomRight;
     }
-
+*/
+/*
     public boolean collidesAt(GameObject gameObject, Vector2 position) {
         Vector2 tempPosition = getPosition();
         setPosition(position);
@@ -69,17 +72,34 @@ public class GameObject {
         setPosition(tempPosition);
         return collides;
     }
+*/
 
-    private int getWidth() {
-        return (int) sprite.getWidth();
+    public boolean collidesAt(Vector2 position, String type, int margin) {
+        return Level.collidesAt(this, position, type, margin);
     }
 
-    private int getHeight() {
-        return (int) sprite.getHeight();
+    public GameObject collidesAtGameObject(Vector2 position, String type, int margin) {
+        return Level.collidesAtGameObject(this, position, type, margin);
+    }
+
+    public int getWidth() {
+        if(sprite != null)
+            return (int) sprite.getWidth();
+        return 0;
+    }
+
+    public int getHeight() {
+        if(sprite != null)
+            return (int) sprite.getHeight();
+        return 0;
     }
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+    }
+
+    public boolean getVulnerable() {
+        return false;
     }
 
     public boolean isAlive() {
@@ -124,5 +144,19 @@ public class GameObject {
 
     public void setMaxSpeed(double maxSpeed) {
         this.maxSpeed = maxSpeed;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void eaten() {}
+
+    public boolean getDamaged() {
+        return false;
     }
 }

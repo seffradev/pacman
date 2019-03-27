@@ -4,6 +4,7 @@ import com.avekvist.pacman.core.GameObject;
 import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
+import com.avekvist.pacman.core.helper.Timer;
 import com.avekvist.pacman.core.math.Vector2;
 
 import java.awt.event.KeyEvent;
@@ -21,8 +22,14 @@ public class PacMan extends GameObject implements KeyListener {
     private boolean isDying;
     private boolean isMoving;
     private boolean isPoweredUp;
+    private int score;
+    private Timer timer;
+    private int deadGhosts;
 
     public PacMan() {
+        super();
+
+        timer = new Timer();
         isDying = false;
 
         rightSprite = new Sprite();
@@ -45,17 +52,32 @@ public class PacMan extends GameObject implements KeyListener {
         deathSprite.setAnimation(new Animation(graphics, 4, 7, 12 * 3, 12 * 3, 12 * 3 * 12, 12 * 3));
         deathSprite.setAnimationDelay(0.1);
 
-        setPosition(new Vector2(120, 64));
         setDirection(Direction.RIGHT);
-        setSprite(rightSprite);
-        setAlive(true);
         setMaxSpeed(2);
+        setType("PacMan");
     }
 
     public void update() {
-        super.update();
+        timer.update();
+
+        if(timer.getDelay() <= 0)
+            setPoweredUp(false);
+
+        isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 1);
+
+        if(isMoving)
+            super.update();
 
         if(!isDying) {
+            GameObject collider = collidesAtGameObject(getPosition(), "Ghost", 1);
+            if(collider != null) {
+                if(collider.getVulnerable() && !collider.getDamaged()) {
+                    collider.eaten();
+                    addDeadGhosts(1);
+                } else if(!collider.getDamaged())
+                    isDying = true;
+            }
+
             switch (getDirection()) {
                 case UP:
                     setVelocity(new Vector2(0, -getMaxSpeed()));
@@ -88,7 +110,6 @@ public class PacMan extends GameObject implements KeyListener {
                 setVelocity(new Vector2(0, 0));
             } else {
                 if (getSprite().getAnimationIndex() >= getSprite().getAnimation().getNumOfIndices() - 1) {
-                    getSprite().setAnimationIndex(0);
                     setAlive(false);
                 }
             }
@@ -112,8 +133,6 @@ public class PacMan extends GameObject implements KeyListener {
             setDirection(Direction.LEFT);
         if(keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_D)
             setDirection(Direction.RIGHT);
-        if(keyCode == KeyEvent.VK_SPACE)
-            isDying = true;
     }
 
     @Override
@@ -134,6 +153,40 @@ public class PacMan extends GameObject implements KeyListener {
     }
 
     public void setPoweredUp(boolean poweredUp) {
+        if(poweredUp)
+            timer.setDelay(10);
+        else
+            setDeadGhosts(0);
+
         isPoweredUp = poweredUp;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+        System.out.println(this.score);
+    }
+
+    public int getDelay() {
+        return timer.getDelay();
+    }
+
+    public void setDeadGhosts(int deadGhosts) {
+        this.deadGhosts = deadGhosts;
+    }
+
+    public int getDeadGhosts() {
+        return deadGhosts;
+    }
+
+    public void addDeadGhosts(int deadGhosts) {
+        setDeadGhosts(getDeadGhosts() + deadGhosts);
     }
 }

@@ -14,5 +14,6 @@ public class Wall extends GameObject {
         wallSprite.setAnimation(new Animation(graphics, 0, 4, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
         setSprite(wallSprite);
         setAlive(true);
+        setType("Wall");
     }
 }

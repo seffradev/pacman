@@ -2,7 +2,15 @@ package com.avekvist.pacman.core;
 
 import com.avekvist.pacman.core.helper.Direction;
 import com.avekvist.pacman.core.math.Vector2;
-import com.avekvist.pacman.objects.*;
+import com.avekvist.pacman.objects.PacMan;
+import com.avekvist.pacman.objects.Wall;
+import com.avekvist.pacman.objects.ghosts.Blinky;
+import com.avekvist.pacman.objects.ghosts.Clyde;
+import com.avekvist.pacman.objects.ghosts.Inky;
+import com.avekvist.pacman.objects.ghosts.Pinky;
+import com.avekvist.pacman.objects.points.Pellet;
+import com.avekvist.pacman.objects.points.PowerPellet;
+import com.avekvist.pacman.objects.points.fruits.FruitSpawner;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,22 +25,23 @@ import static com.avekvist.pacman.Game.WIDTH;
 public class Level {
     private String path;
     private int width, height, tileSize;
-    private ArrayList<GameObject> gameObjects;
+    private static ArrayList<GameObject> gameObjects;
 
-    private PacMan pacman;
+    private static PacMan pacman;
+    private static Vector2 pacmanSpawnPoint;
+    private FruitSpawner fruitSpawner;
     private Pinky pinky;
     private Inky inky;
     private Blinky blinky;
     private Clyde clyde;
+    private static int fruitTaken;
 
     public Level(String path, int tileSize) {
         this.path = path;
         this.tileSize = tileSize;
         gameObjects = new ArrayList<>();
 
-        Wall wall1 = new Wall();
-        wall1.setPosition(new Vector2(WIDTH / 2, HEIGHT / 2));
-        add(wall1);
+        fruitTaken = 0;
 
         try {
             BufferedImage image = ImageIO.read(Level.class.getResource(path));
@@ -51,7 +60,8 @@ public class Level {
                     switch(pixels[x + y * w]) {
                         case 0xFFFFFF00:
                             pacman = new PacMan();
-                            pacman.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            pacmanSpawnPoint = new Vector2(x * tileSize + tileSize, y * tileSize + tileSize);
+                            pacman.setPosition(pacmanSpawnPoint);
                             add(pacman);
                             break;
                         case 0xFF0000AA:
@@ -83,6 +93,15 @@ public class Level {
                             wall.setPosition(new Vector2(x * tileSize, y * tileSize));
                             add(wall);
                             break;
+                        case 0xFFDDDD00:
+                            Pellet pellet = new Pellet();
+                            pellet.setPosition(new Vector2(x * tileSize + tileSize / 2 - pellet.getWidth() / 2, y * tileSize + tileSize / 2 - pellet.getHeight() / 2));
+                            add(pellet);
+                            break;
+                        case 0xFF00FF00:
+                            PowerPellet powerPellet = new PowerPellet();
+                            powerPellet.setPosition(new Vector2(x * tileSize + tileSize / 2 - powerPellet.getWidth() / 2, y * tileSize + tileSize / 2 - powerPellet.getHeight() / 2));
+                            add(powerPellet);
                         default:
                             break;
                     }
@@ -91,13 +110,13 @@ public class Level {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
-    private void loadLevel() {
-
+        fruitSpawner = new FruitSpawner(pacmanSpawnPoint, 1);
     }
 
     public void update() {
+        fruitSpawner.update();
+
         if(gameObjects != null) {
             Iterator<GameObject> gameObjectsIterator = gameObjects.iterator();
 
@@ -126,11 +145,11 @@ public class Level {
         }
     }
 
-    public PacMan getPacMan() {
+    public static PacMan getPacMan() {
         return pacman;
     }
 
-    public void add(GameObject gameObject) {
+    public static void add(GameObject gameObject) {
         if(gameObject != null)
             gameObjects.add(gameObject);
     }
@@ -141,5 +160,93 @@ public class Level {
 
     public int getHeight() {
         return height;
+    }
+
+    public static int getFruitTaken() {
+        return fruitTaken;
+    }
+
+    public static void setFruitTaken(int ft) {
+        fruitTaken = ft;
+    }
+
+    public static void addFruitTaken(int fruitTaken) {
+        setFruitTaken(getFruitTaken() + fruitTaken);
+    }
+
+    public static boolean collidesAt(GameObject source, Vector2 position, String type, int margin) {
+        for(GameObject gameObject : gameObjects) {
+            if(gameObject == source)
+                continue;
+            if(gameObject.getType() != type)
+                continue;
+
+            //System.out.println(gameObject);
+            int myX = (int) position.getX();
+            int myY = (int) position.getY();
+
+            Vector2 otherPosition = gameObject.getPosition();
+            int otherX = (int) otherPosition.getX();
+            int otherY = (int) otherPosition.getY();
+
+            int myWidth = source.getWidth();
+            int myHeight = source.getHeight();
+            int otherWidth = gameObject.getWidth();
+            int otherHeight = gameObject.getHeight();
+
+//        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
+
+//            int margin = 1;
+
+            boolean topLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
+            boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
+            boolean bottomLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
+            boolean bottomRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
+
+//            System.out.println("top left: " + topLeft + ", top right: " + topRight + ", bottom left: " + bottomLeft + ", bottom right: " + bottomRight);
+
+            if(topLeft || topRight || bottomLeft || bottomRight)
+                return true;
+        }
+
+        return false;
+    }
+
+    public static GameObject collidesAtGameObject(GameObject source, Vector2 position, String type, int margin) {
+        for(GameObject gameObject : gameObjects) {
+            if(gameObject == source)
+                continue;
+            if(gameObject.getType() != type)
+                continue;
+
+            //System.out.println(gameObject);
+            int myX = (int) position.getX();
+            int myY = (int) position.getY();
+
+            Vector2 otherPosition = gameObject.getPosition();
+            int otherX = (int) otherPosition.getX();
+            int otherY = (int) otherPosition.getY();
+
+            int myWidth = source.getWidth();
+            int myHeight = source.getHeight();
+            int otherWidth = gameObject.getWidth();
+            int otherHeight = gameObject.getHeight();
+
+//        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
+
+//            int margin = 1;
+
+            boolean topLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
+            boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
+            boolean bottomLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
+            boolean bottomRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
+
+//            System.out.println("top left: " + topLeft + ", top right: " + topRight + ", bottom left: " + bottomLeft + ", bottom right: " + bottomRight);
+
+            if(topLeft || topRight || bottomLeft || bottomRight)
+                return gameObject;
+        }
+
+        return null;
     }
 }
