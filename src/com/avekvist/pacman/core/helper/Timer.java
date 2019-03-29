@@ -5,7 +5,6 @@ public class Timer {
 
     public void setDelay(double seconds) {
         delay = (int) Math.round(seconds * 60);
-        System.out.println(delay);
     }
 
     public int getDelay() {

@@ -2,14 +2,13 @@ package com.avekvist.pacman.core.graphics;
 
 import com.avekvist.pacman.core.math.Vector2;
 
-import static com.avekvist.pacman.Game.HEIGHT;
-import static com.avekvist.pacman.Game.WIDTH;
-
 public class Animation {
     private int[] pixels;
     private int numOfIndices;
     private Vector2 indexDimensions;
     private Vector2 animationDimensions;
+    private int WIDTH;
+    private int HEIGHT;
 
     public Animation(SpriteSheet sheet, int horizontalOffset, int verticalOffset, int width, int height, int animationWidth, int animationHeight) {
         indexDimensions = new Vector2(width, height);
@@ -35,7 +34,7 @@ public class Animation {
         for(int ty = 0; ty < height; ty++) {
             for(int tx = 0; tx < width; tx++) {
                 if(tx + (int) x + (ty + (int) y) * WIDTH < WIDTH * HEIGHT && tx + (int) x + (ty + (int) y) * WIDTH >= 0) {
-                    int i = tx + (ty) * animationWidth + index * animationHeight;
+                    int i = tx + ty * animationWidth + index * animationHeight;
                     if(this.pixels[i] != 0xFF000000)
                         pixels[tx + (int) x + (ty + (int) y) * WIDTH] = this.pixels[i];
                 }
@@ -61,5 +60,10 @@ public class Animation {
 
     public int getNumOfIndices() {
         return numOfIndices;
+    }
+
+    public void setWindowDimensions(int width, int height) {
+        WIDTH = width;
+        HEIGHT = height;
     }
 }

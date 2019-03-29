@@ -3,7 +3,6 @@ package com.avekvist.pacman.core;
 import com.avekvist.pacman.core.helper.Direction;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
-import com.avekvist.pacman.objects.Wall;
 import com.avekvist.pacman.objects.ghosts.Blinky;
 import com.avekvist.pacman.objects.ghosts.Clyde;
 import com.avekvist.pacman.objects.ghosts.Inky;
@@ -11,6 +10,7 @@ import com.avekvist.pacman.objects.ghosts.Pinky;
 import com.avekvist.pacman.objects.points.Pellet;
 import com.avekvist.pacman.objects.points.PowerPellet;
 import com.avekvist.pacman.objects.points.fruits.FruitSpawner;
+import com.avekvist.pacman.objects.walls.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -58,50 +58,76 @@ public class Level {
             for(int y = 0; y < h; y++) {
                 for(int x = 0; x < w; x++) {
                     switch(pixels[x + y * w]) {
-                        case 0xFFFFFF00:
+                        case 0xFF000001:
                             pacman = new PacMan();
-                            pacmanSpawnPoint = new Vector2(x * tileSize + tileSize, y * tileSize + tileSize);
+                            pacmanSpawnPoint = new Vector2(x * tileSize, y * tileSize);
                             pacman.setPosition(pacmanSpawnPoint);
                             add(pacman);
                             break;
-                        case 0xFF0000AA:
-                            inky = new Inky();
-                            inky.setPosition(new Vector2(x * tileSize, y * tileSize));
-                            inky.setDirection(Direction.DOWN);
-                            add(inky);
-                            break;
-                        case 0xFFFF0000:
+                        case 0xFF000002:
                             blinky = new Blinky();
                             blinky.setPosition(new Vector2(x * tileSize, y * tileSize));
                             blinky.setDirection(Direction.UP);
                             add(blinky);
                             break;
-                        case 0xFFFF8800:
-                            clyde = new Clyde();
-                            clyde.setPosition(new Vector2(x * tileSize, y * tileSize));
-                            clyde.setDirection(Direction.RIGHT);
-                            add(clyde);
-                            break;
-                        case 0xFFFF00FF:
+                        case 0xFF000003:
                             pinky = new Pinky();
                             pinky.setPosition(new Vector2(x * tileSize, y * tileSize));
                             pinky.setDirection(Direction.LEFT);
                             add(pinky);
                             break;
-                        case 0xFF0000FF:
-                            Wall wall = new Wall();
-                            wall.setPosition(new Vector2(x * tileSize, y * tileSize));
-                            add(wall);
+                        case 0xFF000004:
+                            inky = new Inky();
+                            inky.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            inky.setDirection(Direction.DOWN);
+                            add(inky);
                             break;
-                        case 0xFFDDDD00:
+                        case 0xFF000005:
+                            clyde = new Clyde();
+                            clyde.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            clyde.setDirection(Direction.RIGHT);
+                            add(clyde);
+                            break;
+                        case 0xFF000006:
                             Pellet pellet = new Pellet();
                             pellet.setPosition(new Vector2(x * tileSize + tileSize / 2 - pellet.getWidth() / 2, y * tileSize + tileSize / 2 - pellet.getHeight() / 2));
                             add(pellet);
                             break;
-                        case 0xFF00FF00:
+                        case 0xFF000007:
                             PowerPellet powerPellet = new PowerPellet();
                             powerPellet.setPosition(new Vector2(x * tileSize + tileSize / 2 - powerPellet.getWidth() / 2, y * tileSize + tileSize / 2 - powerPellet.getHeight() / 2));
                             add(powerPellet);
+                            break;
+                        case 0xFF000008:
+                            Wall1 wall1 = new Wall1();
+                            wall1.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall1);
+                            break;
+                        case 0xFF000009:
+                            Wall2 wall2 = new Wall2();
+                            wall2.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall2);
+                            break;
+                        case 0xFF00000A:
+                            Wall3 wall3 = new Wall3();
+                            wall3.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall3);
+                            break;
+                        case 0xFF00000B:
+                            Wall4 wall4 = new Wall4();
+                            wall4.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall4);
+                            break;
+                        case 0xFF00000C:
+                            Wall5 wall5 = new Wall5();
+                            wall5.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall5);
+                            break;
+                        case 0xFF00000D:
+                            Wall6 wall6 = new Wall6();
+                            wall6.setPosition(new Vector2(x * tileSize, y * tileSize));
+                            add(wall6);
+                            break;
                         default:
                             break;
                     }
@@ -127,8 +153,10 @@ public class Level {
                     continue;
                 }
 
-                if(gameObject != null)
+                if(gameObject != null) {
                     gameObject.update();
+                    gameObject.setWindowDimensions(width, height);
+                }
             }
         }
     }
@@ -181,7 +209,6 @@ public class Level {
             if(gameObject.getType() != type)
                 continue;
 
-            //System.out.println(gameObject);
             int myX = (int) position.getX();
             int myY = (int) position.getY();
 
@@ -195,8 +222,6 @@ public class Level {
             int otherHeight = gameObject.getHeight();
 
 //        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
-
-//            int margin = 1;
 
             boolean topLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;

@@ -21,7 +21,6 @@ public class FruitSpawner {
         timer.update();
 
         if(timer.getDelay() <= 0) {
-            System.out.println("Is this thing on?");
             Fruit fruit;
             switch(Level.getFruitTaken()) {
                 case 0:

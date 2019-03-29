@@ -2,6 +2,9 @@ package com.avekvist.pacman.core.graphics;
 
 import com.avekvist.pacman.core.math.Vector2;
 
+import static com.avekvist.pacman.Game.WIDTH;
+import static com.avekvist.pacman.Game.HEIGHT;
+
 public class Sprite {
     private Animation animation;
     private Vector2 dimensions;
@@ -24,11 +27,6 @@ public class Sprite {
         }
     }
 
-    public void render(int[] pixels, double x, double y) {
-        if(animation != null)
-            animation.render(pixels, index, x, y);
-    }
-
     public void update() {
         count++;
         if(count > animationDelay) {
@@ -40,6 +38,11 @@ public class Sprite {
             else if(index < 0)
                 index = numOfIndices - 1;
         }
+    }
+
+    public void render(int[] pixels, double x, double y) {
+        if(animation != null)
+            animation.render(pixels, index, x, y);
     }
 
     public void render(int[] pixels, Vector2 position) {
@@ -90,5 +93,9 @@ public class Sprite {
 
     public void setAnimationIndex(int index) {
         this.index = index;
+    }
+
+    public void setWindowDimensions(int width, int height) {
+        animation.setWindowDimensions(width, height);
     }
 }
