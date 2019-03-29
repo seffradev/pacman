@@ -5,6 +5,7 @@ import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
+import com.avekvist.pacman.core.helper.Timer;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
 
@@ -21,16 +22,19 @@ public class Ghost extends GameObject {
     protected Sprite leftDamagedSprite;
     protected Sprite upDamagedSprite;
     protected Sprite downDamagedSprite;
+    protected Sprite pointSprite;
 
     private boolean damaged;
     private boolean vulnerable;
     private boolean isMoving;
+    private Timer showPointTimer;
 
     public Ghost() {
         super();
         setType("Ghost");
         setMaxSpeed(2);
         setSprite(rightSprite);
+        showPointTimer = new Timer();
 
         rightSprite = new Sprite();
         rightSprite.setAnimationDelay(0.3);
@@ -63,6 +67,10 @@ public class Ghost extends GameObject {
         vulnerableSprite2 = new Sprite();
         vulnerableSprite2.setAnimation(new Animation(graphics, 12, 5, 12 * 3, 12 * 3, 12 * 3 * 4, 12 * 3));
         vulnerableSprite2.setAnimationDelay(0.3);
+
+        pointSprite = new Sprite();
+        pointSprite.setAnimation(new Animation(graphics, 8, 6, 12 * 3, 12 * 3, 12 * 3 * 4, 12 * 3));
+        pointSprite.setAnimationDirection(0);
     }
 
     public void update() {
@@ -105,27 +113,32 @@ public class Ghost extends GameObject {
         }
 
         if(damaged) {
-            switch (getDirection()) {
-                case UP:
-                    if(getSprite() != upDamagedSprite)
-                        setSprite(upDamagedSprite);
-                    setVelocity(new Vector2(0, -getMaxSpeed()));
-                    break;
-                case DOWN:
-                    if(getSprite() != downDamagedSprite)
-                        setSprite(downDamagedSprite);
-                    setVelocity(new Vector2(0, getMaxSpeed()));
-                    break;
-                case LEFT:
-                    if(getSprite() != leftDamagedSprite)
-                        setSprite(leftDamagedSprite);
-                    setVelocity(new Vector2(-getMaxSpeed(), 0));
-                    break;
-                case RIGHT:
-                    if(getSprite() != rightDamagedSprite)
-                        setSprite(rightDamagedSprite);
-                    setVelocity(new Vector2(getMaxSpeed(), 0));
-                    break;
+            showPointTimer.update();
+            if(showPointTimer.getDelay() > 0) {
+                setSprite(pointSprite);
+            } else {
+                switch (getDirection()) {
+                    case UP:
+                        if (getSprite() != upDamagedSprite)
+                            setSprite(upDamagedSprite);
+                        setVelocity(new Vector2(0, -getMaxSpeed()));
+                        break;
+                    case DOWN:
+                        if (getSprite() != downDamagedSprite)
+                            setSprite(downDamagedSprite);
+                        setVelocity(new Vector2(0, getMaxSpeed()));
+                        break;
+                    case LEFT:
+                        if (getSprite() != leftDamagedSprite)
+                            setSprite(leftDamagedSprite);
+                        setVelocity(new Vector2(-getMaxSpeed(), 0));
+                        break;
+                    case RIGHT:
+                        if (getSprite() != rightDamagedSprite)
+                            setSprite(rightDamagedSprite);
+                        setVelocity(new Vector2(getMaxSpeed(), 0));
+                        break;
+                }
             }
         } else if(vulnerable) {
             int delay = Level.getPacMan().getDelay();
@@ -198,5 +211,7 @@ public class Ghost extends GameObject {
         PacMan pacman = Level.getPacMan();
 
         pacman.addScore(200 * (int) Math.pow(2, pacman.getDeadGhosts()));
+        pointSprite.setAnimationIndex(pacman.getDeadGhosts());
+        showPointTimer.setDelay(0.5);
     }
 }

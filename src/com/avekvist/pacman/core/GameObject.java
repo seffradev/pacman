@@ -159,4 +159,8 @@ public class GameObject {
     public boolean getDamaged() {
         return false;
     }
+
+    public void setWindowDimensions(int width, int height) {
+        getSprite().setWindowDimensions(width, height);
+    }
 }

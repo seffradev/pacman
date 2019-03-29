@@ -26,7 +26,7 @@ public class Game extends Canvas implements Runnable {
 
         setRunning(false);
 
-        level = new Level("/level1.png", 12 * 3);
+        level = new Level("/levels/level874.png", 12 * 3);
         addKeyListener(level.getPacMan());
 
         WIDTH = level.getWidth();

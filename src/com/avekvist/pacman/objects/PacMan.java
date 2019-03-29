@@ -171,7 +171,6 @@ public class PacMan extends GameObject implements KeyListener {
 
     public void addScore(int score) {
         this.score += score;
-        System.out.println(this.score);
     }
 
     public int getDelay() {
