@@ -13,54 +13,96 @@ import java.util.ArrayList;
 import static com.avekvist.pacman.core.graphics.SpriteSheet.graphics;
 
 public class LevelEditor extends Canvas implements Runnable, MouseWheelListener, MouseListener, MouseMotionListener, KeyListener {
-    private int width;
-    private int height;
-    private int horizontalTiles;
-    private int verticalTiles;
+    private static int width;
+    private static int height;
+    private static int horizontalTiles;
+    private static int verticalTiles;
     private boolean isRunning;
     private Thread thread;
     private String title;
-    private BufferedImage image;
-    private int[] pixels;
-    private JFrame frame;
-    private int tileSize;
-    private int rightMenuSize;
+    private static BufferedImage image;
+    private static int[] pixels;
+    private static JFrame frame;
+    private static int tileSize;
+    private static int rightMenuSize;
     private Map map;
     private ArrayList<Animation> images;
     private int index;
 
     public LevelEditor(int horizontalTiles, int verticalTiles, int tileSize) {
-        map = new Map("resources/levels/level874.png");
-        //map = new Map(horizontalTiles, verticalTiles);
+        frame = new JFrame();
 
         this.horizontalTiles = horizontalTiles;
         this.verticalTiles = verticalTiles;
+        this.tileSize = tileSize;
 
         rightMenuSize = 128 * 3;
 
         width = horizontalTiles * tileSize + rightMenuSize;
         height = verticalTiles * tileSize;
 
-        this.horizontalTiles = horizontalTiles;
-        this.verticalTiles = verticalTiles;
-        this.tileSize = tileSize;
+        map = new Map(horizontalTiles, verticalTiles);
 
         images = new ArrayList<>();
 
         images.add(null);                                           // Empty
-        images.add(generateAnimation(0, 7)); // PacMan
-        images.add(generateAnimation(0, 6)); // Blinky
-        images.add(generateAnimation(0, 8)); // Pinky
-        images.add(generateAnimation(8, 8)); // Inky
-        images.add(generateAnimation(0, 9)); // Clyde
-        images.add(new Animation(graphics, 16, 0, tileSize / 2, tileSize / 2, tileSize / 2, tileSize / 2)); // Pellet
-        images.add(new Animation(graphics, 18, 0, tileSize / 2, tileSize / 2, tileSize / 2, tileSize / 2)); // Power Pellet
-        images.add(generateAnimation(0, 4)); // Wall1
-        images.add(generateAnimation(1, 4)); // Wall2
-        images.add(generateAnimation(2, 4)); // Wall3
-        images.add(generateAnimation(3, 4)); // Wall4
-        images.add(generateAnimation(4, 4)); // Wall5
-        images.add(generateAnimation(5, 4)); // Wall6
+        images.add(generateAnimation(0, 7, tileSize * 2)); // PacMan
+        images.add(generateAnimation(0, 6, tileSize * 2)); // Blinky
+        images.add(generateAnimation(0, 8, tileSize * 2)); // Pinky
+        images.add(generateAnimation(8, 8, tileSize * 2)); // Inky
+        images.add(generateAnimation(0, 9, tileSize * 2)); // Clyde
+        images.add(generateAnimation(16, 0)); // Pellet
+        images.add(generateAnimation(18, 0)); // Power Pellet
+        images.add(generateAnimation(0, 4, tileSize * 2)); // Wall1
+        images.add(generateAnimation(1, 4, tileSize * 2)); // Wall2
+        images.add(generateAnimation(2, 4, tileSize * 2)); // Wall3
+        images.add(generateAnimation(3, 4, tileSize * 2)); // Wall4
+        images.add(generateAnimation(4, 4, tileSize * 2)); // Wall5
+        images.add(generateAnimation(5, 4, tileSize * 2)); // Wall6
+        images.add(generateAnimation(16, 3)); // Wall7
+        images.add(generateAnimation(17, 3)); // Wall8
+        images.add(generateAnimation(18, 3)); // Wall9
+        images.add(generateAnimation(19, 3)); // Wall10
+        images.add(generateAnimation(20, 3)); // Wall11
+        images.add(generateAnimation(21, 3)); // Wall12
+        images.add(generateAnimation(22, 3)); // Wall13
+        images.add(generateAnimation(23, 3)); // Wall14
+        images.add(generateAnimation(24, 3)); // Wall15
+        images.add(generateAnimation(25, 3)); // Wall16
+        images.add(generateAnimation(26, 3)); // Wall17
+        images.add(generateAnimation(27, 3)); // Wall18
+        images.add(generateAnimation(28, 3)); // Wall19
+        images.add(generateAnimation(29, 3)); // Wall20
+        images.add(generateAnimation(30, 3)); // Wall21
+        images.add(generateAnimation(31, 3)); // Wall22
+        images.add(generateAnimation(16, 4)); // Wall23
+        images.add(generateAnimation(17, 4)); // Wall24
+        images.add(generateAnimation(18, 4)); // Wall25
+        images.add(generateAnimation(19, 4)); // Wall26
+        images.add(generateAnimation(20, 4)); // Wall27
+        images.add(generateAnimation(21, 4)); // Wall28
+        images.add(generateAnimation(22, 4)); // Wall29
+        images.add(generateAnimation(23, 4)); // Wall30
+        images.add(generateAnimation(24, 4)); // Wall31
+        images.add(generateAnimation(25, 4)); // Wall32
+        images.add(generateAnimation(26, 4)); // Wall33
+        images.add(generateAnimation(27, 4)); // Wall34
+        images.add(generateAnimation(28, 4)); // Wall35
+        images.add(generateAnimation(29, 4)); // Wall36
+        images.add(generateAnimation(30, 4)); // Wall37
+        images.add(generateAnimation(31, 4)); // Wall38
+        images.add(generateAnimation(16, 5)); // Wall39
+        images.add(generateAnimation(17, 5)); // Wall40
+        images.add(generateAnimation(18, 5)); // Wall41
+        images.add(generateAnimation(19, 5)); // Wall42
+        images.add(generateAnimation(20, 5)); // Wall43
+        images.add(generateAnimation(21, 5)); // Wall44
+        images.add(generateAnimation(22, 5)); // Wall45
+        images.add(generateAnimation(23, 5)); // Wall46
+        images.add(generateAnimation(24, 5)); // Wall47
+        images.add(generateAnimation(25, 5)); // Wall48
+        images.add(generateAnimation(26, 5)); // Wall49
+        images.add(generateAnimation(27, 5)); // Wall50
 
         for(Animation anim : images) {
             if(anim != null)
@@ -69,7 +111,6 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
 
         title = "Pac-Man Level Editor";
 
-        frame = new JFrame();
         frame.setTitle(title);
         frame.setSize(width, height);
         frame.add(this);
@@ -183,35 +224,38 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
         yMargin = tileSize;
 
         int currentColumn = 0;
-        int maxColumns = 3;
+        int maxColumns = 5;
 
         for(int i = 0; i < images.size(); i++) {
             Animation anim = images.get(i);
 
+            int drawWidth = tileSize * 2;
+            int drawHeight = tileSize * 2;
+
             if(i == index)
-                for(int y = 0; y < tileSize; y++)
-                    for(int x = 0; x < tileSize; x++)
+                for(int y = 0; y < drawHeight; y++)
+                    for(int x = 0; x < drawWidth; x++)
                         pixels[xMargin + x + (yMargin + y) * width] = 0x222222;
 
-            for(int y = 0; y < tileSize + 1; y++)
+            for(int y = 0; y < drawHeight + 1; y++)
                 if(y % tileSize == 0)
-                    for(int x = 0; x < tileSize; x++)
+                    for(int x = 0; x < drawWidth; x++)
                         pixels[xMargin + x + (yMargin + y) * width] = 0xFFFFFF;
 
-            for(int x = 0; x < tileSize + 1; x++)
+            for(int x = 0; x < drawWidth + 1; x++)
                 if(x % tileSize == 0)
-                    for(int y = 0; y < tileSize; y++)
+                    for(int y = 0; y < drawHeight; y++)
                         pixels[xMargin + x + (yMargin + y) * width] = 0xFFFFFF;
 
             if(anim != null)
                 anim.render(pixels, 0, xMargin, yMargin);
 
             if(currentColumn >= maxColumns) {
-                xMargin = width - rightMenuSize + tileSize;
-                yMargin += tileSize + 5;
+                xMargin = width - rightMenuSize + drawWidth;
+                yMargin += drawHeight + 5;
                 currentColumn = 0;
             } else {
-                xMargin += tileSize + 5;
+                xMargin += drawWidth + 5;
             }
 
             currentColumn++;
@@ -244,6 +288,10 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
     }
 
     public Animation generateAnimation(int horizontalIndex, int verticalIndex) {
+        return new Animation(graphics, horizontalIndex, verticalIndex, tileSize, tileSize, tileSize, tileSize);
+    }
+
+    public Animation generateAnimation(int horizontalIndex, int verticalIndex, int tileSize) {
         return new Animation(graphics, horizontalIndex, verticalIndex, tileSize, tileSize, tileSize, tileSize);
     }
 
@@ -318,8 +366,24 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
     }
 
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+        int keyCode = e.getKeyCode();
+        if(keyCode == KeyEvent.VK_S) {
             map.generateImage();
+        }
+
+        if(keyCode == KeyEvent.VK_A) {
+            String path = JOptionPane.showInputDialog("Enter filename");
+            map.setPath("resources/levels/" + path);
+            map.generateImage();
+        }
+
+        if(keyCode == KeyEvent.VK_O) {
+            String path = JOptionPane.showInputDialog("Enter file to open");
+            map = new Map("resources/levels/" + path);
+        }
+
+        if(keyCode == KeyEvent.VK_N) {
+            map = new Map(horizontalTiles, verticalTiles);
         }
     }
 
@@ -327,8 +391,26 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
 
     }
 
+    public static void setHorizontalTiles(int horizontalTiles) {
+        LevelEditor.horizontalTiles = horizontalTiles;
+        width = horizontalTiles * tileSize + rightMenuSize;
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+        frame.setSize(width, height);
+        System.out.println(width + ", " + height);
+    }
+
+    public static void setVerticalTiles(int verticalTiles) {
+        LevelEditor.verticalTiles = verticalTiles;
+        height = verticalTiles * tileSize;
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+        frame.setSize(width, height);
+        System.out.println(width + ", " + height);
+    }
+
     public static void main(String[] args) {
-        LevelEditor editor = new LevelEditor(19, 21, 36);
+        LevelEditor editor = new LevelEditor(19 * 2, 21 * 2, 18);
 
         editor.start();
     }

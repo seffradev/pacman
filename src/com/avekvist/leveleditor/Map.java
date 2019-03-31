@@ -14,15 +14,14 @@ public class Map {
     public Map(String path) {
         this.path = path;
 
-        loadMap();
-    }
-
-    private void loadMap() {
         try {
             BufferedImage image = ImageIO.read(new File(this.path));
 
             width = image.getWidth();
             height = image.getHeight();
+
+            LevelEditor.setHorizontalTiles(width);
+            LevelEditor.setVerticalTiles(height);
 
             pixels = new int[width * height];
 
@@ -37,6 +36,9 @@ public class Map {
     public Map(int width, int height) {
         this.width = width;
         this.height = height;
+
+        LevelEditor.setHorizontalTiles(width);
+        LevelEditor.setVerticalTiles(height);
 
         pixels = new int[width * height];
     }
@@ -67,5 +69,9 @@ public class Map {
 
     public void setColor(int x, int y, int color) {
         pixels[x + y * width] = color;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

@@ -15,11 +15,15 @@ public class PowerPellet extends GameObject {
         super();
 
         pelletSprite = new Sprite();
-        pelletSprite.setAnimation(new Animation(graphics, 20, 0, 6 * 3, 6 * 3, 6 * 3, 6 * 3));
+        pelletSprite.setAnimation(new Animation(graphics, 21, 0, 6 * 3, 6 * 3, 6 * 3 * 2, 6 * 3));
+        pelletSprite.setAnimationDirection(1);
+        pelletSprite.setAnimationDelay(0.1);
         setSprite(pelletSprite);
     }
 
     public void update() {
+        super.update();
+
         if(collidesAt(getPosition(), "PacMan", 8)) {
             PacMan pacman = Level.getPacMan();
             pacman.setPoweredUp(true);

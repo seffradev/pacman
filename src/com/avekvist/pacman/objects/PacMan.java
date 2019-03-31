@@ -1,6 +1,7 @@
 package com.avekvist.pacman.objects;
 
 import com.avekvist.pacman.core.GameObject;
+import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
@@ -26,11 +27,21 @@ public class PacMan extends GameObject implements KeyListener {
     private Timer timer;
     private int deadGhosts;
 
+    private boolean goUp;
+    private boolean goDown;
+    private boolean goLeft;
+    private boolean goRight;
+
     public PacMan() {
         super();
 
         timer = new Timer();
         isDying = false;
+
+        goUp = false;
+        goDown = false;
+        goLeft = false;
+        goRight = false;
 
         rightSprite = new Sprite();
         rightSprite.setAnimation(new Animation(graphics, 4, 3, 12 * 3, 12 * 3, 12 * 3 * 2, 12 * 3));
@@ -69,6 +80,8 @@ public class PacMan extends GameObject implements KeyListener {
             super.update();
 
         if(!isDying) {
+            deathSprite.setAnimationIndex(0);
+
             GameObject collider = collidesAtGameObject(getPosition(), "Ghost", 1);
             if(collider != null) {
                 if(collider.getVulnerable() && !collider.getDamaged()) {
@@ -76,6 +89,28 @@ public class PacMan extends GameObject implements KeyListener {
                     addDeadGhosts(1);
                 } else if(!collider.getDamaged())
                     isDying = true;
+            }
+
+            if(goUp) {
+                boolean canGo = !collidesAt(getPosition().add(new Vector2(0, -1)), "Wall", 1);
+
+                if(canGo)
+                    setDirection(Direction.UP);
+            } else if(goDown) {
+                boolean canGo = !collidesAt(getPosition().add(new Vector2(0, 1)), "Wall", 1);
+
+                if(canGo)
+                    setDirection(Direction.DOWN);
+            } else if(goLeft) {
+                boolean canGo = !collidesAt(getPosition().add(new Vector2(-1, 0)), "Wall", 1);
+
+                if(canGo)
+                    setDirection(Direction.LEFT);
+            } else if(goRight) {
+                boolean canGo = !collidesAt(getPosition().add(new Vector2(1, 0)), "Wall", 1);
+
+                if(canGo)
+                    setDirection(Direction.RIGHT);
             }
 
             switch (getDirection()) {
@@ -125,14 +160,69 @@ public class PacMan extends GameObject implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
-        if(keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_W)
-            setDirection(Direction.UP);
-        if(keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_S)
-            setDirection(Direction.DOWN);
-        if(keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_A)
-            setDirection(Direction.LEFT);
-        if(keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_D)
-            setDirection(Direction.RIGHT);
+        if(keyCode == KeyEvent.VK_UP || keyCode == KeyEvent.VK_W) {
+            Direction direction = getDirection();
+            if(direction == Direction.DOWN || !isMoving) {
+                setDirection(Direction.UP);
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            } else if(direction == Direction.RIGHT || direction == Direction.LEFT) {
+                goUp = true;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            }
+        }
+
+        if(keyCode == KeyEvent.VK_DOWN || keyCode == KeyEvent.VK_S) {
+            Direction direction = getDirection();
+            if(direction == Direction.UP || !isMoving) {
+                setDirection(Direction.DOWN);
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            } else if(direction == Direction.RIGHT || direction == Direction.LEFT) {
+                goUp = false;
+                goDown = true;
+                goLeft = false;
+                goRight = false;
+            }
+        }
+
+        if(keyCode == KeyEvent.VK_LEFT || keyCode == KeyEvent.VK_A) {
+            Direction direction = getDirection();
+            if(direction == Direction.RIGHT || !isMoving) {
+                setDirection(Direction.LEFT);
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            } else if(direction == Direction.UP || direction == Direction.DOWN) {
+                goUp = false;
+                goDown = false;
+                goLeft = true;
+                goRight = false;
+            }
+        }
+
+        if(keyCode == KeyEvent.VK_RIGHT || keyCode == KeyEvent.VK_D) {
+            Direction direction = getDirection();
+            if(direction == Direction.LEFT || !isMoving) {
+                setDirection(Direction.RIGHT);
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = false;
+            } else if(direction == Direction.UP || direction == Direction.DOWN) {
+                goUp = false;
+                goDown = false;
+                goLeft = false;
+                goRight = true;
+            }
+        }
     }
 
     @Override
@@ -187,5 +277,13 @@ public class PacMan extends GameObject implements KeyListener {
 
     public void addDeadGhosts(int deadGhosts) {
         setDeadGhosts(getDeadGhosts() + deadGhosts);
+    }
+
+    public void setIsDying(boolean isDying) {
+        this.isDying = isDying;
+    }
+
+    public boolean getIsDying() {
+        return isDying;
     }
 }

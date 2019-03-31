@@ -1,5 +1,6 @@
 package com.avekvist.pacman.objects.ghosts;
 
+import com.avekvist.pacman.Game;
 import com.avekvist.pacman.core.GameObject;
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
@@ -28,6 +29,8 @@ public class Ghost extends GameObject {
     private boolean vulnerable;
     private boolean isMoving;
     private Timer showPointTimer;
+    private boolean hasBeenEaten;
+    private Vector2 startPosition;
 
     public Ghost() {
         super();
@@ -74,8 +77,8 @@ public class Ghost extends GameObject {
     }
 
     public void update() {
-        isMoving = !(collidesAt(getPosition().add(getVelocity()), "Wall", 1) || collidesAt(getPosition().add(getVelocity()), "Ghost", 1));
-        if(Level.getPacMan().isPoweredUp()) {
+        isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 1);
+        if(Level.getPacMan() != null && Level.getPacMan().isPoweredUp()) {
             setVulnerable(true);
 
             if(getMaxSpeed() != 1)
@@ -86,6 +89,9 @@ public class Ghost extends GameObject {
             if(getMaxSpeed() != 2)
                 setMaxSpeed(2);
         }
+
+        if(getDamaged())
+            setMaxSpeed(4);
 
         if(isMoving)
             super.update();
@@ -139,6 +145,11 @@ public class Ghost extends GameObject {
                         setVelocity(new Vector2(getMaxSpeed(), 0));
                         break;
                 }
+            }
+
+            if(hasBeenEaten) {
+                Game.getTimer().setDelay(0.3);
+                hasBeenEaten = false;
             }
         } else if(vulnerable) {
             int delay = Level.getPacMan().getDelay();
@@ -213,5 +224,14 @@ public class Ghost extends GameObject {
         pacman.addScore(200 * (int) Math.pow(2, pacman.getDeadGhosts()));
         pointSprite.setAnimationIndex(pacman.getDeadGhosts());
         showPointTimer.setDelay(0.5);
+        hasBeenEaten = true;
+    }
+
+    public void setStartPosition(Vector2 position) {
+        this.startPosition = position;
+    }
+
+    public Vector2 getStartPosition() {
+        return startPosition;
     }
 }

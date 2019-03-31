@@ -27,36 +27,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d2a64fb-2f48-40b5-864a-ed50d56df386" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall12.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall13.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall14.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall15.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall16.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall17.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall18.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall19.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall20.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall21.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall22.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall23.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall24.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall25.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall26.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall27.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall28.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall29.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall30.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall31.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall32.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall33.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall7.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall9.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/leveleditor/LevelEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/leveleditor/LevelEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/leveleditor/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/leveleditor/Map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/graphics/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/graphics/Animation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/graphics/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/graphics/Sprite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/helper/Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/core/helper/Timer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/PacMan$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/PacMan$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/PacMan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/PacMan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/Wall.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/points/fruits/FruitSpawner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/points/fruits/FruitSpawner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/points/fruits/GalaxianBoss.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/points/fruits/GalaxianBoss.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/level1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/level1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/ghosts/Ghost$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/ghosts/Ghost$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/ghosts/Ghost.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/com/avekvist/pacman/objects/ghosts/Ghost.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PacManClone/levels/level874.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PacManClone/levels/level874.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/levels/level874.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/levels/level874.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/core/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/core/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Animation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Animation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Timer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/PacMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/PacMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/FruitSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/FruitSpawner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/PowerPellet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/PowerPellet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,48 +82,78 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2307">
-              <caret line="222" column="38" lean-forward="true" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
+            <state relative-caret-position="719">
+              <caret line="417" lean-forward="true" selection-start-line="417" selection-end-line="417" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6980#6981#0" expanded="true" />
-                <element signature="e#7012#7013#0" expanded="true" />
-                <element signature="e#7054#7055#0" expanded="true" />
-                <element signature="e#7088#7089#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2257#2258#0" expanded="true" />
-                <element signature="e#2302#2303#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/SpriteSheet.java">
+        <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="130">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1066#1067#0" expanded="true" />
-                <element signature="e#1110#1111#0" expanded="true" />
+                <element signature="e#1814#1815#0" expanded="true" />
+                <element signature="e#1859#1860#0" expanded="true" />
+                <element signature="e#1899#1900#0" expanded="true" />
+                <element signature="e#1931#1932#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="343">
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8096#8097#0" expanded="true" />
+                <element signature="e#8125#8126#0" expanded="true" />
+                <element signature="e#8285#8286#0" expanded="true" />
+                <element signature="e#8313#8314#0" expanded="true" />
+                <element signature="e#8343#8344#0" expanded="true" />
+                <element signature="e#8372#8373#0" expanded="true" />
+                <element signature="e#8413#8414#0" expanded="true" />
+                <element signature="e#8446#8447#0" expanded="true" />
+                <element signature="e#8494#8495#0" expanded="true" />
+                <element signature="e#8525#8526#0" expanded="true" />
+                <element signature="e#8581#8582#0" expanded="true" />
+                <element signature="e#8640#8641#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3018#3019#0" expanded="true" />
+                <element signature="e#3050#3051#0" expanded="true" />
+                <element signature="e#3097#3098#0" expanded="true" />
+                <element signature="e#3132#3133#0" expanded="true" />
+                <element signature="e#3170#3171#0" expanded="true" />
+                <element signature="e#3198#3199#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/spritesheet.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -123,7 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>6</find>
       <find>== null</find>
       <find>System.out</find>
       <find>setPosition(</find>
@@ -131,10 +175,40 @@
       <find>&lt;</find>
       <find>1</find>
       <find>getDeadGhosts</find>
+      <find>12</find>
+      <find>6</find>
     </findStrings>
     <replaceStrings>
+      <replace>37</replace>
+      <replace>35</replace>
+      <replace>34</replace>
+      <replace>33</replace>
+      <replace>32</replace>
+      <replace>31</replace>
+      <replace>30</replace>
+      <replace>29</replace>
+      <replace>28</replace>
+      <replace>27</replace>
+      <replace>26</replace>
+      <replace>25</replace>
+      <replace>24</replace>
+      <replace>23</replace>
+      <replace>22</replace>
+      <replace>21</replace>
+      <replace>20</replace>
+      <replace>19</replace>
+      <replace>18</replace>
+      <replace>17</replace>
+      <replace>16</replace>
+      <replace>15</replace>
+      <replace>14</replace>
+      <replace>13</replace>
+      <replace>12</replace>
+      <replace>11</replace>
+      <replace>10</replace>
+      <replace>9</replace>
       <replace>8</replace>
-      <replace>margin</replace>
+      <replace>7</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -143,48 +217,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/Window.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Direction.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/SpriteSheet.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/math/Vector2.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Window.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Wall.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Pellet.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Blinky.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Clyde.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Pinky.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Inky.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Ghost.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/PowerPellet.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/Fruit.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/Pellet.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/PowerPellet.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Cherry.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Bell.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Key.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Melon.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Apple.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Orange.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Strawberry.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Fruit.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/GalaxianBoss.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/FruitSpawner.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Timer.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Sprite.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Ghost.java" />
         <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/GameObject.java" />
         <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/PacMan.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Animation.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall2.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall3.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall4.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall5.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall6.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall50.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall49.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall48.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall47.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall46.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall45.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall44.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall43.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall42.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall41.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall40.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall39.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall38.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall37.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall36.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall35.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall34.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall33.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall32.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall31.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall30.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall29.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall28.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall27.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall26.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall25.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall24.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall23.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall22.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall21.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall20.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall19.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall18.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall17.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall16.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall15.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall14.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall13.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall12.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall11.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall10.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall9.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall8.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall7.java" />
         <option value="$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Ghost.java" />
-        <option value="$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/pacman/Game.java" />
         <option value="$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java" />
+        <option value="$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java" />
       </list>
     </option>
   </component>
@@ -202,92 +285,57 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="avekvist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="avekvist" type="462c0819:PsiDirectoryNode" />
               <item name="leveleditor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="avekvist" type="462c0819:PsiDirectoryNode" />
               <item name="pacman" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
+              <item name="pacman" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="avekvist" type="462c0819:PsiDirectoryNode" />
               <item name="pacman" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="avekvist" type="462c0819:PsiDirectoryNode" />
-              <item name="pacman" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="graphics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="avekvist" type="462c0819:PsiDirectoryNode" />
-              <item name="pacman" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="avekvist" type="462c0819:PsiDirectoryNode" />
-              <item name="pacman" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="ghosts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PacManClone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PacManClone" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="avekvist" type="462c0819:PsiDirectoryNode" />
-              <item name="pacman" type="462c0819:PsiDirectoryNode" />
-              <item name="objects" type="462c0819:PsiDirectoryNode" />
-              <item name="walls" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,23 +343,26 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553824984360" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553999592236" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\PacManClone\src\com\avekvist\pacman" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.avekvist.pacman.core.graphics" />
+      <recent name="com.avekvist.pacman.core.helper" />
+      <recent name="com.avekvist.pacman.core.math" />
+      <recent name="com.avekvist.pacman.core" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\pacman\src\com\avekvist\pacman\objects\walls" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.avekvist.pacman.objects.walls" />
       <recent name="com.avekvist.pacman.objects.points.fruits" />
       <recent name="com.avekvist.pacman.objects" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.avekvist.pacman.core.graphics" />
-      <recent name="com.avekvist.pacman.core.helper" />
-      <recent name="com.avekvist.pacman.core.math" />
-      <recent name="com.avekvist.pacman.core" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\PacManClone\src\com\avekvist\pacman" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -332,7 +383,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PacMan">
+  <component name="RunManager" selected="Application.LevelEditor">
     <configuration name="LevelEditor" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.avekvist.leveleditor.LevelEditor" />
       <module name="PacManClone" />
@@ -368,7 +419,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12526652" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -438,371 +489,408 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Game.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/math/Vector2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#114#115#0" expanded="true" />
-            <element signature="e#138#139#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programs/Java/jdk-11.0.2/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="2293" column="23" selection-start-line="2293" selection-start-column="23" selection-end-line="2293" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programs/Java/jdk-11.0.2/lib/src.zip!/java.base/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="71" column="44" lean-forward="true" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Blinky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Pinky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Clyde.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Inky.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/PowerPellet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Cherry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/Pellet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Bell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Key.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Melon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/GalaxianBoss.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Orange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Strawberry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/level1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/helper/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#128#129#0" expanded="true" />
-            <element signature="e#182#183#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Fruit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/Apple.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/points/fruits/FruitSpawner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall6.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/ghosts/Ghost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6658#6659#0" expanded="true" />
-            <element signature="e#6755#6756#0" expanded="true" />
-            <element signature="e#6826#6827#0" expanded="true" />
-            <element signature="e#6891#6892#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/PacMan.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
+        <state relative-caret-position="149">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4664#4665#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#5055#5056#0" expanded="true" />
-            <element signature="e#5090#5091#0" expanded="true" />
+            <element signature="e#7580#7581#0" expanded="true" />
+            <element signature="e#7658#7659#0" expanded="true" />
+            <element signature="e#7728#7729#0" expanded="true" />
+            <element signature="e#7973#7974#0" expanded="true" />
+            <element signature="e#8046#8047#0" expanded="true" />
+            <element signature="e#8120#8121#0" expanded="true" />
+            <element signature="e#8188#8189#0" expanded="true" />
+            <element signature="e#8281#8282#0" expanded="true" />
+            <element signature="e#8348#8349#0" expanded="true" />
+            <element signature="e#8456#8457#0" expanded="true" />
+            <element signature="e#8444#8445#0" expanded="true" />
+            <element signature="e#8482#8483#0" expanded="true" />
+            <element signature="e#8521#8522#0" expanded="true" />
+            <element signature="e#8542#8543#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java">
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall50.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="171" selection-start-line="171" selection-end-line="171" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall49.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="87" column="13" lean-forward="true" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall48.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall47.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall46.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall45.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall44.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall43.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall42.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall41.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall40.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall39.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall38.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall37.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall36.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall35.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall33.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="77" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall32.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall31.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall30.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall29.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall28.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="79" lean-forward="true" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall27.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall26.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="66" lean-forward="true" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall25.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall24.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall23.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall22.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall21.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall20.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="81" lean-forward="true" selection-start-line="13" selection-start-column="81" selection-end-line="13" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall19.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall18.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="78" lean-forward="true" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall17.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="84" selection-start-line="13" selection-start-column="84" selection-end-line="13" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall16.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall15.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall14.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="80" lean-forward="true" selection-start-line="13" selection-start-column="80" selection-end-line="13" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall13.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall12.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="13" column="77" lean-forward="true" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall11.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall10.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall9.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/objects/walls/Wall34.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/spritesheet.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Animation.java">
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        <state relative-caret-position="343">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#8096#8097#0" expanded="true" />
+            <element signature="e#8125#8126#0" expanded="true" />
+            <element signature="e#8285#8286#0" expanded="true" />
+            <element signature="e#8313#8314#0" expanded="true" />
+            <element signature="e#8343#8344#0" expanded="true" />
+            <element signature="e#8372#8373#0" expanded="true" />
+            <element signature="e#8413#8414#0" expanded="true" />
+            <element signature="e#8446#8447#0" expanded="true" />
+            <element signature="e#8494#8495#0" expanded="true" />
+            <element signature="e#8525#8526#0" expanded="true" />
+            <element signature="e#8581#8582#0" expanded="true" />
+            <element signature="e#8640#8641#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/GameObject.java">
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state>
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4777#4778#0" expanded="true" />
-            <element signature="e#4805#4806#0" expanded="true" />
-            <element signature="e#4867#4868#0" expanded="true" />
-            <element signature="e#4929#4930#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/Programs/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/imageio/ImageIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="1396" column="7" lean-forward="true" selection-start-line="1396" selection-start-column="7" selection-end-line="1396" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/pacman/core/graphics/SpriteSheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2307">
-          <caret line="222" column="38" lean-forward="true" selection-start-line="222" selection-start-column="38" selection-end-line="222" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6980#6981#0" expanded="true" />
-            <element signature="e#7012#7013#0" expanded="true" />
-            <element signature="e#7054#7055#0" expanded="true" />
-            <element signature="e#7088#7089#0" expanded="true" />
+            <element signature="e#3018#3019#0" expanded="true" />
+            <element signature="e#3050#3051#0" expanded="true" />
+            <element signature="e#3097#3098#0" expanded="true" />
+            <element signature="e#3132#3133#0" expanded="true" />
+            <element signature="e#3170#3171#0" expanded="true" />
+            <element signature="e#3198#3199#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        <state relative-caret-position="130">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1859#1860#0" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1931#1932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/avekvist/leveleditor/LevelEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="417" lean-forward="true" selection-start-line="417" selection-end-line="417" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2257#2258#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -163,4 +163,8 @@ public class GameObject {
     public void setWindowDimensions(int width, int height) {
         getSprite().setWindowDimensions(width, height);
     }
+
+    public Vector2 getStartPosition() {
+        return new Vector2(0, 0);
+    }
 }

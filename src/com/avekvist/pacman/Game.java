@@ -2,7 +2,10 @@ package com.avekvist.pacman;
 
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Window;
+import com.avekvist.pacman.core.helper.Timer;
+import com.avekvist.pacman.objects.PacMan;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -20,13 +23,15 @@ public class Game extends Canvas implements Runnable {
     public static int HEIGHT;
 
     Level level;
+    private static Timer timer;
 
     public Game(String title) {
         this.title = title;
+        timer = new Timer();
 
         setRunning(false);
 
-        level = new Level("/levels/level874.png", 12 * 3);
+        level = new Level("/levels/" + JOptionPane.showInputDialog("Enter level name") + ".png", 6 * 3);
         addKeyListener(level.getPacMan());
 
         WIDTH = level.getWidth();
@@ -92,7 +97,10 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void update() {
-        level.update();
+        timer.update();
+        if(timer.getDelay() <= 0) {
+            level.update();
+        }
     }
 
     private void render() {
@@ -118,6 +126,10 @@ public class Game extends Canvas implements Runnable {
 
     public void setRunning(boolean running) {
         isRunning = running;
+    }
+
+    public static Timer getTimer() {
+        return timer;
     }
 
     public static void main(String[] args) {
