@@ -12,7 +12,10 @@ public class Map {
     public int[] pixels;
 
     public Map(String path) {
+        LevelEditor.setIsLoading(true);
+
         this.path = path;
+        pixels = null;
 
         try {
             BufferedImage image = ImageIO.read(new File(this.path));
@@ -20,27 +23,35 @@ public class Map {
             width = image.getWidth();
             height = image.getHeight();
 
-            LevelEditor.setHorizontalTiles(width);
-            LevelEditor.setVerticalTiles(height);
-
             pixels = new int[width * height];
 
             image.getRGB(0, 0, width, height, pixels, 0, width);
             for(int i = 0; i < width * height; i++)
                 pixels[i] = pixels[i] - 0xFF000000;
+
+            LevelEditor.setHorizontalTiles(width);
+            LevelEditor.setVerticalTiles(height);
+
+            LevelEditor.setIsLoading(false);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Map(int width, int height) {
+        LevelEditor.setIsLoading(true);
+        pixels = null;
+
         this.width = width;
         this.height = height;
+
+
+        pixels = new int[width * height];
 
         LevelEditor.setHorizontalTiles(width);
         LevelEditor.setVerticalTiles(height);
 
-        pixels = new int[width * height];
+        LevelEditor.setIsLoading(false);
     }
 
     public void generateImage() {

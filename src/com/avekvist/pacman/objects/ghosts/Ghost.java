@@ -6,6 +6,7 @@ import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
+import com.avekvist.pacman.core.helper.Mode;
 import com.avekvist.pacman.core.helper.Timer;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
@@ -31,6 +32,10 @@ public class Ghost extends GameObject {
     private Timer showPointTimer;
     private boolean hasBeenEaten;
     private Vector2 startPosition;
+    private boolean goUp;
+    private boolean goDown;
+    private boolean goLeft;
+    private boolean goRight;
 
     public Ghost() {
         super();
@@ -77,6 +82,18 @@ public class Ghost extends GameObject {
     }
 
     public void update() {
+        switch(Level.getMode()) {
+            case DoAChase:
+                doAChase();
+                break;
+            case DoAScatter:
+                doAScatter();
+                break;
+            case DoAFrighten:
+                doAFrighten();
+                break;
+        }
+
         isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 1);
         if(Level.getPacMan() != null && Level.getPacMan().isPoweredUp()) {
             setVulnerable(true);
@@ -98,22 +115,59 @@ public class Ghost extends GameObject {
         else if(getSprite() == vulnerableSprite2)
             getSprite().update();
 
-        int rng = (int) (Math.random() * 100);
+        int rng = (int) (Math.random() * 1000);
+
+        if (goUp) {
+            boolean canGo = !collidesAt(getPosition().add(new Vector2(0, -1)), "Wall", 1);
+
+            if (canGo)
+                setDirection(Direction.UP);
+        } else if (goDown) {
+            boolean canGo = !collidesAt(getPosition().add(new Vector2(0, 1)), "Wall", 1);
+
+            if (canGo)
+                setDirection(Direction.DOWN);
+        } else if (goLeft) {
+            boolean canGo = !collidesAt(getPosition().add(new Vector2(-1, 0)), "Wall", 1);
+
+            if (canGo)
+                setDirection(Direction.LEFT);
+        } else if (goRight) {
+            boolean canGo = !collidesAt(getPosition().add(new Vector2(1, 0)), "Wall", 1);
+
+            if (canGo)
+                setDirection(Direction.RIGHT);
+        }
+
+        if(!isMoving)
+            rng = (int) (Math.random() * 10);
 
         if(rng < 2) {
             int dir = (int) (Math.random() * 4);
             switch (dir) {
                 case 0:
-                    setDirection(Direction.RIGHT);
+                    goRight = true;
+                    goUp = false;
+                    goLeft = false;
+                    goDown = false;
                     break;
                 case 1:
-                    setDirection(Direction.UP);
+                    goRight = false;
+                    goUp = true;
+                    goLeft = false;
+                    goDown = false;
                     break;
                 case 2:
-                    setDirection(Direction.LEFT);
+                    goRight = false;
+                    goUp = false;
+                    goLeft = true;
+                    goDown = false;
                     break;
                 case 3:
-                    setDirection(Direction.DOWN);
+                    goRight = false;
+                    goUp = false;
+                    goLeft = false;
+                    goDown = true;
                     break;
             }
         }
@@ -145,6 +199,8 @@ public class Ghost extends GameObject {
                         setVelocity(new Vector2(getMaxSpeed(), 0));
                         break;
                 }
+                setPosition(startPosition);
+                setDamaged(false);
             }
 
             if(hasBeenEaten) {
@@ -221,6 +277,10 @@ public class Ghost extends GameObject {
 
         PacMan pacman = Level.getPacMan();
 
+        int deadGhosts = pacman.getDeadGhosts();
+        if(deadGhosts > 3)
+            pacman.setDeadGhosts(0);
+
         pacman.addScore(200 * (int) Math.pow(2, pacman.getDeadGhosts()));
         pointSprite.setAnimationIndex(pacman.getDeadGhosts());
         showPointTimer.setDelay(0.5);
@@ -233,5 +293,17 @@ public class Ghost extends GameObject {
 
     public Vector2 getStartPosition() {
         return startPosition;
+    }
+
+    public void doAChase() {
+
+    }
+
+    public void doAScatter() {
+
+    }
+
+    public void doAFrighten() {
+
     }
 }

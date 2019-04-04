@@ -19,16 +19,10 @@ public class PowerPellet extends GameObject {
         pelletSprite.setAnimationDirection(1);
         pelletSprite.setAnimationDelay(0.1);
         setSprite(pelletSprite);
+        setType("PowerPellet");
     }
 
     public void update() {
         super.update();
-
-        if(collidesAt(getPosition(), "PacMan", 8)) {
-            PacMan pacman = Level.getPacMan();
-            pacman.setPoweredUp(true);
-            pacman.addScore(50);
-            setAlive(false);
-        }
     }
 }

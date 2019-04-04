@@ -1,8 +1,11 @@
 package com.avekvist.pacman.core;
 
+import com.avekvist.pacman.core.graphics.Letter;
 import com.avekvist.pacman.core.helper.Direction;
+import com.avekvist.pacman.core.helper.Mode;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
+import com.avekvist.pacman.core.graphics.PointText;
 import com.avekvist.pacman.objects.ghosts.*;
 import com.avekvist.pacman.objects.points.Pellet;
 import com.avekvist.pacman.objects.points.PowerPellet;
@@ -22,7 +25,7 @@ import static com.avekvist.pacman.Game.WIDTH;
 
 public class Level {
     private String path;
-    private int width, height, tileSize;
+    private static int width, height, tileSize;
     private static ArrayList<GameObject> gameObjects;
 
     private static PacMan pacman;
@@ -34,14 +37,19 @@ public class Level {
     private Clyde clyde;
     private static int fruitTaken;
     private int extraLives;
+    private static Mode mode;
+    private Vector2 textPosition;
+    private ArrayList<PointText> pointTexts;
 
     public Level(String path, int tileSize) {
         this.path = path;
         this.tileSize = tileSize;
         gameObjects = new ArrayList<>();
+        pointTexts = new ArrayList<>();
         extraLives = 3;
 
         fruitTaken = 0;
+        setMode(Mode.DoAChase);
 
         try {
             BufferedImage image = ImageIO.read(Level.class.getResource(path));
@@ -362,6 +370,34 @@ public class Level {
         }
 
         fruitSpawner = new FruitSpawner(pacmanSpawnPoint, 1);
+
+        textPosition = new Vector2(16, height - 68);
+
+        Letter s = new Letter("S");
+        s.setPosition(textPosition);
+        textPosition = textPosition.add(new Vector2(6 * 3, 0));
+
+        Letter c = new Letter("C");
+        c.setPosition(textPosition);
+        textPosition = textPosition.add(new Vector2(6 * 3, 0));
+
+        Letter o = new Letter("O");
+        o.setPosition(textPosition);
+        textPosition = textPosition.add(new Vector2(6 * 3, 0));
+
+        Letter r = new Letter("R");
+        r.setPosition(textPosition);
+        textPosition = textPosition.add(new Vector2(6 * 3, 0));
+
+        Letter e = new Letter("E");
+        e.setPosition(textPosition);
+        textPosition = textPosition.add(new Vector2(6 * 3 * 2, -3));
+
+        add(s);
+        add(c);
+        add(o);
+        add(r);
+        add(e);
     }
 
     public static void setPacMan(PacMan pacman) {
@@ -383,13 +419,21 @@ public class Level {
                         continue;
                     }
 
+                    if(gameObject.getClass() == PointText.class && !gameObject.isAlive()) {
+                        gameObjectsIterator.remove();
+                        pointTexts.remove(gameObject);
+                        continue;
+                    }
+
                     gameObject.update();
                     gameObject.setWindowDimensions(width, height);
                 }
             }
         }
 
-        if(!getPacMan().isAlive()) {
+        PacMan pacman = getPacMan();
+
+        if(!pacman.isAlive()) {
             if (extraLives > 0) {
                 extraLives--;
                 getPacMan().setAlive(true);
@@ -402,6 +446,27 @@ public class Level {
                     if(object.getClass().getSuperclass() == Fruit.class)
                         object.setAlive(false);
                 }
+            }
+        } else {
+            int score = pacman.getScore();
+            String scoreText = Integer.toString(score);
+
+            for(int i = 0; i < scoreText.length(); i++) {
+                if(i > pointTexts.size() - 1) {
+                    PointText pt = new PointText("0");
+                    pt.setIndex(String.valueOf(scoreText.charAt(i)));
+                    pt.setPosition(textPosition.add(new Vector2(i * 3 * 6, 0)));
+                    pointTexts.add(pt);
+                } else if(pointTexts.size() > scoreText.length()) {
+                    pointTexts.get(i).setAlive(false);
+                } else {
+                    pointTexts.get(i).setIndex(String.valueOf(scoreText.charAt(i)));
+                }
+            }
+
+            for(PointText pt : pointTexts) {
+                if(!gameObjects.contains(pt))
+                    add(pt);
             }
         }
     }
@@ -428,11 +493,11 @@ public class Level {
             gameObjects.add(gameObject);
     }
 
-    public int getWidth() {
+    public static int getWidth() {
         return width;
     }
 
-    public int getHeight() {
+    public static int getHeight() {
         return height;
     }
 
@@ -471,7 +536,7 @@ public class Level {
 
 //        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
 
-            boolean topLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
+            boolean topLeft = myX >= otherX && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean bottomLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
             boolean bottomRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
@@ -521,5 +586,13 @@ public class Level {
         }
 
         return null;
+    }
+
+    public static Mode getMode() {
+        return mode;
+    }
+
+    public static void setMode(Mode mode) {
+        Level.mode = mode;
     }
 }

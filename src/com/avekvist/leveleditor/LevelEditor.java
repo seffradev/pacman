@@ -28,6 +28,7 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
     private Map map;
     private ArrayList<Animation> images;
     private int index;
+    private static boolean isLoading;
 
     public LevelEditor(int horizontalTiles, int verticalTiles, int tileSize) {
         frame = new JFrame();
@@ -155,24 +156,26 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
         long now;
 
         while(isRunning()) {
-            now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
+            if(!isLoading) {
+                now = System.nanoTime();
+                delta += (now - lastTime) / ns;
+                lastTime = now;
 
-            while(delta >= 1) {
-                update();
-                updates++;
-                delta--;
-            }
+                while (delta >= 1) {
+                    update();
+                    updates++;
+                    delta--;
+                }
 
-            render();
-            frames++;
+                render();
+                frames++;
 
-            if(System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                frame.setTitle(title + " | " + frames + " FPS, " + updates + " Updates");
-                updates = 0;
-                frames = 0;
+                if (System.currentTimeMillis() - timer > 1000) {
+                    timer += 1000;
+                    frame.setTitle(title + " | " + frames + " FPS, " + updates + " Updates");
+                    updates = 0;
+                    frames = 0;
+                }
             }
         }
 
@@ -392,21 +395,35 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
     }
 
     public static void setHorizontalTiles(int horizontalTiles) {
+        image = null;
+        pixels = null;
+
         LevelEditor.horizontalTiles = horizontalTiles;
         width = horizontalTiles * tileSize + rightMenuSize;
+        frame.setSize(width, height);
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-        frame.setSize(width, height);
         System.out.println(width + ", " + height);
     }
 
     public static void setVerticalTiles(int verticalTiles) {
+        image = null;
+        pixels = null;
+
         LevelEditor.verticalTiles = verticalTiles;
         height = verticalTiles * tileSize;
+        frame.setSize(width, height);
         image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-        frame.setSize(width, height);
         System.out.println(width + ", " + height);
+    }
+
+    public static boolean getIsLoading() {
+        return isLoading;
+    }
+
+    public static void setIsLoading(boolean isLoading) {
+        LevelEditor.isLoading = isLoading;
     }
 
     public static void main(String[] args) {

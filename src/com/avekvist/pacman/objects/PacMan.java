@@ -71,16 +71,34 @@ public class PacMan extends GameObject implements KeyListener {
     public void update() {
         timer.update();
 
+        if(position.add(getVelocity()).getX() >= Level.getWidth())
+            position.setX(5);
+        if(position.add(getVelocity()).getX() < 0)
+            position.setX(Level.getWidth() - 5);
+
         if(timer.getDelay() <= 0)
             setPoweredUp(false);
 
-        isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 1);
+        isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 2);
 
         if(isMoving)
             super.update();
 
         if(!isDying) {
             deathSprite.setAnimationIndex(0);
+
+            GameObject pelletCollider = collidesAtGameObject(getPosition(), "Pellet", 8);
+            if(pelletCollider != null) {
+                addScore(10);
+                pelletCollider.setAlive(false);
+            }
+
+            GameObject powerCollider = collidesAtGameObject(getPosition(), "PowerPellet", 8);
+            if(powerCollider != null) {
+                setPoweredUp(true);
+                addScore(50);
+                powerCollider.setAlive(false);
+            }
 
             GameObject collider = collidesAtGameObject(getPosition(), "Ghost", 1);
             if(collider != null) {
@@ -230,14 +248,6 @@ public class PacMan extends GameObject implements KeyListener {
 
     }
 
-    public boolean isMoving() {
-        return isMoving;
-    }
-
-    public void setMoving(boolean moving) {
-        isMoving = moving;
-    }
-
     public boolean isPoweredUp() {
         return isPoweredUp;
     }
@@ -249,14 +259,6 @@ public class PacMan extends GameObject implements KeyListener {
             setDeadGhosts(0);
 
         isPoweredUp = poweredUp;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public void addScore(int score) {
@@ -283,7 +285,7 @@ public class PacMan extends GameObject implements KeyListener {
         this.isDying = isDying;
     }
 
-    public boolean getIsDying() {
-        return isDying;
+    public int getScore() {
+        return score;
     }
 }

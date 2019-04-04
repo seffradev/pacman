@@ -29,6 +29,7 @@ public class GameObject {
 
     public void render(int[] pixels) {
         Sprite sprite = getSprite();
+
         if(sprite != null)
             sprite.render(pixels, getPosition());
     }

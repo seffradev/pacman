@@ -3,7 +3,6 @@ package com.avekvist.pacman;
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Window;
 import com.avekvist.pacman.core.helper.Timer;
-import com.avekvist.pacman.objects.PacMan;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,6 +30,7 @@ public class Game extends Canvas implements Runnable {
 
         setRunning(false);
 
+        //level = new Level("/levels/finalized.png", 6 * 3);
         level = new Level("/levels/" + JOptionPane.showInputDialog("Enter level name") + ".png", 6 * 3);
         addKeyListener(level.getPacMan());
 
@@ -98,6 +98,7 @@ public class Game extends Canvas implements Runnable {
 
     private void update() {
         timer.update();
+
         if(timer.getDelay() <= 0) {
             level.update();
         }

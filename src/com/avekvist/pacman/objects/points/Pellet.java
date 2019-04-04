@@ -15,12 +15,6 @@ public class Pellet extends GameObject {
         pelletSprite = new Sprite();
         pelletSprite.setAnimation(new Animation(graphics, 16, 0, 6 * 3, 6 * 3, 6 * 3, 6 * 3));
         setSprite(pelletSprite);
-    }
-
-    public void update() {
-        if(collidesAt(getPosition(), "PacMan", 8)) {
-            Level.getPacMan().addScore(10);
-            setAlive(false);
-        }
+        setType("Pellet");
     }
 }

@@ -22,11 +22,7 @@ public class Window {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
     }
-/*
-    public void render(Graphics g, ArrayList<GameObject> gameObjects) {
 
-    }
-*/
     public JFrame getFrame() {
         return frame;
     }
