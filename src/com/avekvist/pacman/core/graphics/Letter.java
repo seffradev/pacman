@@ -105,6 +105,5 @@ public class Letter extends GameObject {
 
         textSprite.setAnimationIndex(charLetter);
         setSprite(textSprite);
-        System.out.println("Changed number: " + charLetter + ", x: " + getPosition().getX() + ", y: " + getPosition().getY());
     }
 }

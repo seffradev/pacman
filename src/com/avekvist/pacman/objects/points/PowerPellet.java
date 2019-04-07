@@ -1,5 +1,6 @@
 package com.avekvist.pacman.objects.points;
 
+import com.avekvist.pacman.Game;
 import com.avekvist.pacman.core.GameObject;
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
@@ -22,7 +23,7 @@ public class PowerPellet extends GameObject {
         setType("PowerPellet");
     }
 
-    public void update() {
-        super.update();
+    public void update(Game game) {
+        super.update(game);
     }
 }

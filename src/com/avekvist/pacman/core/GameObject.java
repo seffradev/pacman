@@ -1,5 +1,6 @@
 package com.avekvist.pacman.core;
 
+import com.avekvist.pacman.Game;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
 import com.avekvist.pacman.core.math.Vector2;
@@ -19,7 +20,7 @@ public class GameObject {
         setAlive(true);
     }
 
-    public void update() {
+    public void update(Game game) {
         setPosition(getPosition().add(getVelocity()));
 
         Sprite sprite = getSprite();
@@ -155,7 +156,7 @@ public class GameObject {
         return type;
     }
 
-    public void eaten() {}
+    public void eaten(Game game) {}
 
     public boolean getDamaged() {
         return false;

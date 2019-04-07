@@ -4,11 +4,11 @@ import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Window;
 import com.avekvist.pacman.core.helper.Timer;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.ArrayList;
 
 public class Game extends Canvas implements Runnable {
     private boolean isRunning;
@@ -21,17 +21,25 @@ public class Game extends Canvas implements Runnable {
     public static int WIDTH;
     public static int HEIGHT;
 
-    Level level;
+    private Level level;
     private static Timer timer;
+    private int levelsBeaten;
+    private int fruitsTaken;
+    private int baseExtraLives = 2;
+    private int extraLives;
+    private int score;
 
     public Game(String title) {
         this.title = title;
         timer = new Timer();
+        levelsBeaten = 0;
 
         setRunning(false);
 
         //level = new Level("/levels/finalized.png", 6 * 3);
-        level = new Level("/levels/" + JOptionPane.showInputDialog("Enter level name") + ".png", 6 * 3);
+        //level = new Level("/levels/" + JOptionPane.showInputDialog("Enter level name") + ".png", 6 * 3);
+        level = new Level("/levels/level5.png", 6 * 3);
+
         addKeyListener(level.getPacMan());
 
         WIDTH = level.getWidth();
@@ -42,6 +50,30 @@ public class Game extends Canvas implements Runnable {
 
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+        extraLives = baseExtraLives;
+    }
+
+    public void nextLevel() {
+        removeKeyListener(level.getPacMan());
+        level = new Level("/levels/level5.png", 6 * 3);
+        addKeyListener(level.getPacMan());
+        levelsBeaten++;
+        System.out.println("Next level");
+        Level.setFruitIsTaken(false);
+        Level.setPointTexts(new ArrayList<>());
+    }
+
+    public void restart() {
+        removeKeyListener(level.getPacMan());
+        level = new Level("/levels/level5.png", 6 * 3);
+        addKeyListener(level.getPacMan());
+        levelsBeaten = 0;
+        System.out.println("Restarted");
+        extraLives = baseExtraLives;
+        Level.setFruitIsTaken(false);
+        fruitsTaken = 0;
+        Level.setPointTexts(new ArrayList<>());
+        score = 0;
     }
 
     public synchronized void start() {
@@ -100,7 +132,7 @@ public class Game extends Canvas implements Runnable {
         timer.update();
 
         if(timer.getDelay() <= 0) {
-            level.update();
+            level.update(this);
         }
     }
 
@@ -113,7 +145,7 @@ public class Game extends Canvas implements Runnable {
 
         Graphics g = bs.getDrawGraphics();
 
-        level.render(g, pixels);
+        level.render(this, g, pixels);
 
         g.drawImage(image, 0, 0, WIDTH, HEIGHT, null);
 
@@ -133,9 +165,37 @@ public class Game extends Canvas implements Runnable {
         return timer;
     }
 
+    public int getLevelsBeaten() {
+        return levelsBeaten;
+    }
+
     public static void main(String[] args) {
         Game game = new Game("PAC-MAN");
 
         game.start();
+    }
+
+    public int getExtraLives() {
+        return extraLives;
+    }
+
+    public void setExtraLives(int extraLives) {
+        this.extraLives = extraLives;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getFruitsTaken() {
+        return fruitsTaken;
+    }
+
+    public void setFruitsTaken(int fruitsTaken) {
+        this.fruitsTaken = fruitsTaken;
     }
 }

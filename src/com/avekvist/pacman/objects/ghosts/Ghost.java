@@ -81,7 +81,7 @@ public class Ghost extends GameObject {
         pointSprite.setAnimationDirection(0);
     }
 
-    public void update() {
+    public void update(Game game) {
         switch(Level.getMode()) {
             case DoAChase:
                 doAChase();
@@ -111,7 +111,7 @@ public class Ghost extends GameObject {
             setMaxSpeed(4);
 
         if(isMoving)
-            super.update();
+            super.update(game);
         else if(getSprite() == vulnerableSprite2)
             getSprite().update();
 
@@ -271,7 +271,7 @@ public class Ghost extends GameObject {
         return damaged;
     }
 
-    public void eaten() {
+    public void eaten(Game game) {
         setDamaged(true);
         setVulnerable(false);
 
@@ -281,7 +281,7 @@ public class Ghost extends GameObject {
         if(deadGhosts > 3)
             pacman.setDeadGhosts(0);
 
-        pacman.addScore(200 * (int) Math.pow(2, pacman.getDeadGhosts()));
+        pacman.addScore(game, 200 * (int) Math.pow(2, pacman.getDeadGhosts()));
         pointSprite.setAnimationIndex(pacman.getDeadGhosts());
         showPointTimer.setDelay(0.5);
         hasBeenEaten = true;

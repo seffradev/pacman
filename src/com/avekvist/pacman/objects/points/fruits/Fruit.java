@@ -1,5 +1,6 @@
 package com.avekvist.pacman.objects.points.fruits;
 
+import com.avekvist.pacman.Game;
 import com.avekvist.pacman.core.GameObject;
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Sprite;
@@ -21,14 +22,15 @@ public class Fruit extends GameObject {
         setSprite(fruitSprite);
     }
 
-    public void update() {
+    public void update(Game game) {
         timer.update();
         if(timer.getDelay() <= 0)
             setAlive(false);
 
         if(collidesAt(getPosition(), "PacMan", 8)) {
-            Level.getPacMan().addScore(getPoints());
-            Level.addFruitTaken(1);
+            Level.getPacMan().addScore(game, getPoints());
+            Level.setFruitIsTaken(true);
+            game.setFruitsTaken(game.getFruitsTaken() + 1);
             setAlive(false);
         }
     }

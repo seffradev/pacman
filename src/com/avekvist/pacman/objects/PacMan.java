@@ -1,5 +1,6 @@
 package com.avekvist.pacman.objects;
 
+import com.avekvist.pacman.Game;
 import com.avekvist.pacman.core.GameObject;
 import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
@@ -68,7 +69,7 @@ public class PacMan extends GameObject implements KeyListener {
         setType("PacMan");
     }
 
-    public void update() {
+    public void update(Game game) {
         timer.update();
 
         if(position.add(getVelocity()).getX() >= Level.getWidth())
@@ -82,28 +83,28 @@ public class PacMan extends GameObject implements KeyListener {
         isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 2);
 
         if(isMoving)
-            super.update();
+            super.update(game);
 
         if(!isDying) {
             deathSprite.setAnimationIndex(0);
 
             GameObject pelletCollider = collidesAtGameObject(getPosition(), "Pellet", 8);
             if(pelletCollider != null) {
-                addScore(10);
+                addScore(game, 10);
                 pelletCollider.setAlive(false);
             }
 
             GameObject powerCollider = collidesAtGameObject(getPosition(), "PowerPellet", 8);
             if(powerCollider != null) {
                 setPoweredUp(true);
-                addScore(50);
+                addScore(game, 50);
                 powerCollider.setAlive(false);
             }
 
             GameObject collider = collidesAtGameObject(getPosition(), "Ghost", 1);
             if(collider != null) {
                 if(collider.getVulnerable() && !collider.getDamaged()) {
-                    collider.eaten();
+                    collider.eaten(game);
                     addDeadGhosts(1);
                 } else if(!collider.getDamaged())
                     isDying = true;
@@ -261,8 +262,14 @@ public class PacMan extends GameObject implements KeyListener {
         isPoweredUp = poweredUp;
     }
 
-    public void addScore(int score) {
+    public void addScore(Game game, int score) {
         this.score += score;
+        game.setScore(game.getScore() + score);
+
+        if(this.score > 10000) {
+            this.score -= 10000;
+            game.setExtraLives(game.getExtraLives() + 1);
+        }
     }
 
     public int getDelay() {

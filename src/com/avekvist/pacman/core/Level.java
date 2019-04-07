@@ -1,6 +1,9 @@
 package com.avekvist.pacman.core;
 
+import com.avekvist.pacman.Game;
+import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Letter;
+import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
 import com.avekvist.pacman.core.helper.Mode;
 import com.avekvist.pacman.core.math.Vector2;
@@ -22,8 +25,11 @@ import java.util.Iterator;
 
 import static com.avekvist.pacman.Game.HEIGHT;
 import static com.avekvist.pacman.Game.WIDTH;
+import static com.avekvist.pacman.core.graphics.SpriteSheet.graphics;
 
 public class Level {
+    private static boolean fruitIsTaken;
+    private final Sprite pacmanSprite;
     private String path;
     private static int width, height, tileSize;
     private static ArrayList<GameObject> gameObjects;
@@ -35,20 +41,28 @@ public class Level {
     private Inky inky;
     private Blinky blinky;
     private Clyde clyde;
-    private static int fruitTaken;
-    private int extraLives;
     private static Mode mode;
     private Vector2 textPosition;
-    private ArrayList<PointText> pointTexts;
+    private static ArrayList<PointText> pointTexts;
+    private ArrayList<Pellet> pellets;
+    private Sprite fruitSprite;
 
     public Level(String path, int tileSize) {
         this.path = path;
         this.tileSize = tileSize;
         gameObjects = new ArrayList<>();
         pointTexts = new ArrayList<>();
-        extraLives = 3;
+        pellets = new ArrayList<>();
+        pacmanSprite = new Sprite();
+        pacmanSprite.setAnimation(new Animation(graphics, 4, 3, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
+        pacmanSprite.setAnimationDirection(0);
+        pacmanSprite.setAnimationDelay(0);
 
-        fruitTaken = 0;
+        fruitSprite = new Sprite();
+        fruitSprite.setAnimation(new Animation(graphics, 0, 5, 12 * 3, 12 * 3, 12 * 3 * 8, 12 * 3));
+        fruitSprite.setAnimationDirection(0);
+        fruitSprite.setAnimationDelay(0);
+
         setMode(Mode.DoAChase);
 
         try {
@@ -104,6 +118,7 @@ public class Level {
                             Pellet pellet = new Pellet();
                             pellet.setPosition(new Vector2(x * tileSize + tileSize / 2 - pellet.getWidth() / 2, y * tileSize + tileSize / 2 - pellet.getHeight() / 2));
                             add(pellet);
+                            pellets.add(pellet);
                             break;
                         case 7:
                             PowerPellet powerPellet = new PowerPellet();
@@ -371,7 +386,7 @@ public class Level {
 
         fruitSpawner = new FruitSpawner(pacmanSpawnPoint, 1);
 
-        textPosition = new Vector2(16, height - 68);
+        textPosition = new Vector2(16, height - 64);
 
         Letter s = new Letter("S");
         s.setPosition(textPosition);
@@ -404,8 +419,19 @@ public class Level {
         Level.pacman = pacman;
     }
 
-    public void update() {
-        fruitSpawner.update();
+    public static void setFruitIsTaken(boolean b) {
+        fruitIsTaken = b;
+    }
+
+    public static boolean getFruitIsTaken() {
+        return fruitIsTaken;
+    }
+
+    public void update(Game game) {
+        if(pellets.size() <= 0)
+            game.nextLevel();
+
+        fruitSpawner.update(game);
 
         if(gameObjects != null) {
             Iterator<GameObject> gameObjectsIterator = gameObjects.iterator();
@@ -414,18 +440,24 @@ public class Level {
                 GameObject gameObject = it.next();
 
                 if(gameObject != null) {
-                    if (!gameObject.isAlive() && (gameObject.getClass() != PacMan.class || extraLives <= 0)) {
-                        gameObjectsIterator.remove();
-                        continue;
-                    }
-
                     if(gameObject.getClass() == PointText.class && !gameObject.isAlive()) {
                         gameObjectsIterator.remove();
                         pointTexts.remove(gameObject);
                         continue;
                     }
 
-                    gameObject.update();
+                    if(gameObject.getClass() == Pellet.class && !gameObject.isAlive()) {
+                        gameObjectsIterator.remove();
+                        pellets.remove(gameObject);
+                        continue;
+                    }
+
+                    if (!gameObject.isAlive() && (gameObject.getClass() != PacMan.class || game.getExtraLives() <= 0)) {
+                        gameObjectsIterator.remove();
+                        continue;
+                    }
+
+                    gameObject.update(game);
                     gameObject.setWindowDimensions(width, height);
                 }
             }
@@ -434,8 +466,8 @@ public class Level {
         PacMan pacman = getPacMan();
 
         if(!pacman.isAlive()) {
-            if (extraLives > 0) {
-                extraLives--;
+            if (game.getExtraLives() > 0) {
+                game.setExtraLives(game.getExtraLives() - 1);
                 getPacMan().setAlive(true);
                 getPacMan().setPosition(pacmanSpawnPoint);
                 getPacMan().setIsDying(false);
@@ -446,9 +478,11 @@ public class Level {
                     if(object.getClass().getSuperclass() == Fruit.class)
                         object.setAlive(false);
                 }
+            } else {
+                game.restart();
             }
         } else {
-            int score = pacman.getScore();
+            int score = game.getScore();
             String scoreText = Integer.toString(score);
 
             for(int i = 0; i < scoreText.length(); i++) {
@@ -471,7 +505,7 @@ public class Level {
         }
     }
 
-    public void render(Graphics g, int[] pixels) {
+    public void render(Game game, Graphics g, int[] pixels) {
         for(int y = 0; y < HEIGHT; y++) {
             for(int x = 0; x < WIDTH; x++) {
                 pixels[x + y * WIDTH] = 0x000000;
@@ -481,6 +515,21 @@ public class Level {
         for(GameObject gameObject : gameObjects) {
             if(gameObject != null)
                 gameObject.render(pixels);
+        }
+
+        int extraLives = game.getExtraLives();
+        pacmanSprite.setWindowDimensions(width, height);
+
+        for(int i = 0; i < extraLives; i++) {
+            pacmanSprite.render(pixels, width - (6 - i) * 12 * 3, height - (12 * 3) * 2);
+        }
+
+        int fruitsTaken = game.getFruitsTaken();
+        fruitSprite.setWindowDimensions(width, height);
+
+        for(int i = 0; i < fruitsTaken; i++) {
+            fruitSprite.setAnimationIndex(i);
+            fruitSprite.render(pixels, width - (7 + i) * 12 * 3, height - (12 * 3) * 2);
         }
     }
 
@@ -499,18 +548,6 @@ public class Level {
 
     public static int getHeight() {
         return height;
-    }
-
-    public static int getFruitTaken() {
-        return fruitTaken;
-    }
-
-    public static void setFruitTaken(int ft) {
-        fruitTaken = ft;
-    }
-
-    public static void addFruitTaken(int fruitTaken) {
-        setFruitTaken(getFruitTaken() + fruitTaken);
     }
 
     public static boolean collidesAt(GameObject source, Vector2 position, String type, int margin) {
@@ -594,5 +631,13 @@ public class Level {
 
     public static void setMode(Mode mode) {
         Level.mode = mode;
+    }
+
+    public static void setPointTexts(ArrayList<PointText> pointText) {
+        Level.pointTexts = pointText;
+    }
+
+    public static ArrayList<PointText> getPointTexts() {
+        return Level.pointTexts;
     }
 }
