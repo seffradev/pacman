@@ -18,7 +18,7 @@ public class Map {
         pixels = null;
 
         try {
-            BufferedImage image = ImageIO.read(new File(this.path));
+            BufferedImage image = ImageIO.read(new File(this.path + ".png"));
 
             width = image.getWidth();
             height = image.getHeight();
@@ -45,7 +45,6 @@ public class Map {
         this.width = width;
         this.height = height;
 
-
         pixels = new int[width * height];
 
         LevelEditor.setHorizontalTiles(width);
@@ -67,15 +66,11 @@ public class Map {
             if(path == "")
                 outputFile = new File("resources/levels/level" + ((int)(Math.random() * 10000)) + ".png");
             else
-                outputFile = new File(path);
+                outputFile = new File(path + ".png");
             ImageIO.write(image, "png", outputFile);
         } catch(IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void update() {
-
     }
 
     public void setColor(int x, int y, int color) {

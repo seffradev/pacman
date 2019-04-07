@@ -35,47 +35,6 @@ public class GameObject {
             sprite.render(pixels, getPosition());
     }
 
-    // TODO: Update the collision system
-    // Check for objects at a specific position instead of checking for a specific object at a position.
-    // e.g getObjectAt(Vector2 position) -> GameObject
-    // instead of collidesAt(Vector2 position, GameObject gameObject) -> boolean
-/*
-    public boolean collides(GameObject gameObject) {
-        Vector2 myPosition = getPosition();
-        int myX = (int) myPosition.getX();
-        int myY = (int) myPosition.getY();
-
-        Vector2 otherPosition = gameObject.getPosition();
-        int otherX = (int) otherPosition.getX();
-        int otherY = (int) otherPosition.getY();
-
-        int myWidth = getWidth();
-        int myHeight = getHeight();
-        int otherWidth = gameObject.getWidth();
-        int otherHeight = gameObject.getHeight();
-
-//        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
-
-        boolean topLeft = myX >= otherX && myX <= otherX + otherWidth && myY >= otherY && myY <= otherY + otherHeight;
-        boolean topRight = myX + myWidth >= otherX && myX + myWidth <= otherX + otherWidth && myY >= otherY && myY <= otherY + otherHeight;
-        boolean bottomLeft = myX >= otherX && myX <= otherX + otherWidth && myY + myHeight >= otherY && myY + myHeight <= otherY + otherHeight;
-        boolean bottomRight = myX + myWidth >= otherX && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY && myY + myHeight <= otherY + otherHeight;
-
-//        System.out.println("top left: " + topLeft + ", top right: " + topRight + ", bottom left: " + bottomLeft + ", bottom right: " + bottomRight);
-
-        return topLeft || topRight || bottomLeft || bottomRight;
-    }
-*/
-/*
-    public boolean collidesAt(GameObject gameObject, Vector2 position) {
-        Vector2 tempPosition = getPosition();
-        setPosition(position);
-        boolean collides = collides(gameObject);
-        setPosition(tempPosition);
-        return collides;
-    }
-*/
-
     public boolean collidesAt(Vector2 position, String type, int margin) {
         return Level.collidesAt(this, position, type, margin);
     }

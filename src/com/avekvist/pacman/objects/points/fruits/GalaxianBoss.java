@@ -8,7 +8,7 @@ public class GalaxianBoss extends Fruit {
     public GalaxianBoss() {
         super();
 
-        fruitSprite.setAnimation(new Animation(graphics, 6, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
+        fruitSprite.setAnimation(new Animation(graphics, 5, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
         setPoints(2000);
     }
 }

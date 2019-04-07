@@ -17,16 +17,4 @@ public class Blinky extends Ghost {
         upDamagedSprite.setAnimation(new Animation(graphics, 14, 9, 12 * 3, 12 * 3, 12 * 3 * 2, 12 * 3));
         downDamagedSprite.setAnimation(new Animation(graphics, 10, 9, 12 * 3, 12 * 3, 12 * 3 * 2, 12 * 3));
     }
-
-    public void doAChase() {
-        // TODO: Aggressive.
-    }
-
-    public void doAScatter() {
-        // TODO: Top right
-    }
-
-    public void doAFrighten() {
-        // TODO: Uh I guess this comes next.
-    }
 }

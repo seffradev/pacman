@@ -6,7 +6,6 @@ import com.avekvist.pacman.core.Level;
 import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
-import com.avekvist.pacman.core.helper.Mode;
 import com.avekvist.pacman.core.helper.Timer;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
@@ -82,18 +81,6 @@ public class Ghost extends GameObject {
     }
 
     public void update(Game game) {
-        switch(Level.getMode()) {
-            case DoAChase:
-                doAChase();
-                break;
-            case DoAScatter:
-                doAScatter();
-                break;
-            case DoAFrighten:
-                doAFrighten();
-                break;
-        }
-
         isMoving = !collidesAt(getPosition().add(getVelocity()), "Wall", 1);
         if(Level.getPacMan() != null && Level.getPacMan().isPoweredUp()) {
             setVulnerable(true);
@@ -293,17 +280,5 @@ public class Ghost extends GameObject {
 
     public Vector2 getStartPosition() {
         return startPosition;
-    }
-
-    public void doAChase() {
-
-    }
-
-    public void doAScatter() {
-
-    }
-
-    public void doAFrighten() {
-
     }
 }

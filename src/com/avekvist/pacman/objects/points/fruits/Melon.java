@@ -8,7 +8,7 @@ public class Melon extends Fruit {
     public Melon() {
         super();
 
-        fruitSprite.setAnimation(new Animation(graphics, 5, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
+        fruitSprite.setAnimation(new Animation(graphics, 4, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
         setPoints(1000);
     }
 }

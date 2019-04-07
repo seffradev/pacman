@@ -5,7 +5,6 @@ import com.avekvist.pacman.core.graphics.Animation;
 import com.avekvist.pacman.core.graphics.Letter;
 import com.avekvist.pacman.core.graphics.Sprite;
 import com.avekvist.pacman.core.helper.Direction;
-import com.avekvist.pacman.core.helper.Mode;
 import com.avekvist.pacman.core.math.Vector2;
 import com.avekvist.pacman.objects.PacMan;
 import com.avekvist.pacman.core.graphics.PointText;
@@ -41,7 +40,6 @@ public class Level {
     private Inky inky;
     private Blinky blinky;
     private Clyde clyde;
-    private static Mode mode;
     private Vector2 textPosition;
     private static ArrayList<PointText> pointTexts;
     private ArrayList<Pellet> pellets;
@@ -62,8 +60,6 @@ public class Level {
         fruitSprite.setAnimation(new Animation(graphics, 0, 5, 12 * 3, 12 * 3, 12 * 3 * 8, 12 * 3));
         fruitSprite.setAnimationDirection(0);
         fruitSprite.setAnimationDelay(0);
-
-        setMode(Mode.DoAChase);
 
         try {
             BufferedImage image = ImageIO.read(Level.class.getResource(path));
@@ -521,7 +517,7 @@ public class Level {
         pacmanSprite.setWindowDimensions(width, height);
 
         for(int i = 0; i < extraLives; i++) {
-            pacmanSprite.render(pixels, width - (6 - i) * 12 * 3, height - (12 * 3) * 2);
+            pacmanSprite.render(pixels, width - (4 - i) * 12 * 3, height - (12 * 3) * 2);
         }
 
         int fruitsTaken = game.getFruitsTaken();
@@ -529,7 +525,7 @@ public class Level {
 
         for(int i = 0; i < fruitsTaken; i++) {
             fruitSprite.setAnimationIndex(i);
-            fruitSprite.render(pixels, width - (7 + i) * 12 * 3, height - (12 * 3) * 2);
+            fruitSprite.render(pixels, width - (5 + i) * 12 * 3, height - (12 * 3) * 2);
         }
     }
 
@@ -571,14 +567,10 @@ public class Level {
             int otherWidth = gameObject.getWidth();
             int otherHeight = gameObject.getHeight();
 
-//        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
-
             boolean topLeft = myX >= otherX && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean bottomLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
             boolean bottomRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
-
-//            System.out.println("top left: " + topLeft + ", top right: " + topRight + ", bottom left: " + bottomLeft + ", bottom right: " + bottomRight);
 
             if(topLeft || topRight || bottomLeft || bottomRight)
                 return true;
@@ -594,7 +586,6 @@ public class Level {
             if(gameObject.getType() != type)
                 continue;
 
-            //System.out.println(gameObject);
             int myX = (int) position.getX();
             int myY = (int) position.getY();
 
@@ -607,16 +598,10 @@ public class Level {
             int otherWidth = gameObject.getWidth();
             int otherHeight = gameObject.getHeight();
 
-//        System.out.println("My { " + myX + ", " + myY + ", " + myWidth + ", " + myHeight + ", " + (myX + myWidth) + ", " + (myY + myHeight) + " }, Other { " + otherX + ", " + otherY + ", " + otherWidth + ", " + otherHeight + ", " + (otherX + otherWidth) + ", " + (otherY + otherHeight) + " }");
-
-//            int margin = 1;
-
             boolean topLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean topRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + margin >= otherY + margin && myY + margin <= otherY + otherHeight;
             boolean bottomLeft = myX + margin >= otherX + margin && myX + margin <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
             boolean bottomRight = myX + myWidth >= otherX + margin && myX + myWidth <= otherX + otherWidth && myY + myHeight >= otherY + margin && myY + myHeight <= otherY + otherHeight;
-
-//            System.out.println("top left: " + topLeft + ", top right: " + topRight + ", bottom left: " + bottomLeft + ", bottom right: " + bottomRight);
 
             if(topLeft || topRight || bottomLeft || bottomRight)
                 return gameObject;
@@ -625,19 +610,7 @@ public class Level {
         return null;
     }
 
-    public static Mode getMode() {
-        return mode;
-    }
-
-    public static void setMode(Mode mode) {
-        Level.mode = mode;
-    }
-
     public static void setPointTexts(ArrayList<PointText> pointText) {
         Level.pointTexts = pointText;
-    }
-
-    public static ArrayList<PointText> getPointTexts() {
-        return Level.pointTexts;
     }
 }

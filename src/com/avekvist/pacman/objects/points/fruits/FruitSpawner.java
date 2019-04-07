@@ -27,7 +27,7 @@ public class FruitSpawner {
 
             if (timer.getDelay() <= 0) {
                 Fruit fruit;
-                switch (game.getLevelsBeaten()) {
+                switch (game.getFruitsTaken()) {
                     case 0:
                         fruit = new Cherry();
                         break;

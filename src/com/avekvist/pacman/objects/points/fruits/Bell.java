@@ -8,7 +8,7 @@ public class Bell extends Fruit {
     public Bell() {
         super();
 
-        fruitSprite.setAnimation(new Animation(graphics, 3, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
+        fruitSprite.setAnimation(new Animation(graphics, 6, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
         setPoints(3000);
     }
 }

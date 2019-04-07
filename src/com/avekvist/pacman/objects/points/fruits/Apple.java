@@ -8,7 +8,7 @@ public class Apple extends Fruit {
     public Apple() {
         super();
 
-        fruitSprite.setAnimation(new Animation(graphics, 4, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
+        fruitSprite.setAnimation(new Animation(graphics, 3, 5, 12 * 3, 12 * 3, 12 * 3, 12 * 3));
         setPoints(700);
     }
 }

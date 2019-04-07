@@ -183,7 +183,7 @@ public class LevelEditor extends Canvas implements Runnable, MouseWheelListener,
     }
 
     private void update() {
-        map.update();
+
     }
 
     private void render() {
