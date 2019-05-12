@@ -10,6 +10,11 @@ header{
   grid-area: header;
 }
 
+a:link,a:visited{
+  background-color:white;
+  text-decoration:none;
+  color: black;
+}
 
 #pacman{
 width: 100%;
@@ -42,49 +47,38 @@ align-items: center;
   padding-left: 20px;
   padding-right: 20px;
   margin: 20px;
+  border-radius: 40px;
   background-color: Pink;
 }
 
 #länkarpac{
   width: 100%;
   height: 100%;
-  padding: 20px;
   background-color: Blue;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: ;
   justify-content: space-evenly;
 }
 
 #merpac{
-width: 100px;
-height: 50px;
-padding: 20px;
-background-color: Pink;
-clor: black;
-
+padding: 1px;
+padding-left: 20px;
+padding-right: 20px;
+background-color: #FFFFFF ;
 }
-
-a:link,a:visited{
-  background-color:white;
-  text-decoration:none;
-  color: black;
-}
-
 #merpac:hover{
-  background-color:white;
+  background-color: #CCCCCC;
 }
 
 #downloadpac{
-width: 100px;
-height: 50px;
-padding: 20px;
-margin: 20px;
-background-color: Pink;
+padding: 1px;
+padding-left: 20px;
+padding-right: 20px;
+background-color: #FFFFFF;
 }
-
 #downloadpac:hover{
-  background-color:white;
+  background-color: #CCCCCC;
 }
 
 #leveleditor{
@@ -125,34 +119,59 @@ background-color: Pink;
 }
 
 #meredit{
-width: 100px;
-height: 50px;
-padding: 20px;
-margin: 20px;
-background-color: Pink;
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
 }
-
 #meredit:hover{
-  background-color:white;
+  background-color: #CCCCCC;
 }
 
 #downloadedit{
-width: 100px;
-height: 50px;
-padding: 20px;
-margin: 20px;
-background-color: Pink;
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #FFFFFF;
+  text-align: center;
 }
-
 #downloadedit:hover{
-  background-color:white;
+  background-color: #CCCCCC;
 }
 
 #kontaktinfo{
   width: 100%;
   height: 100%;
+  margin-bottom: 30px;
+  padding-left: 20px;
   background-color: Grey;
   grid-area: kontakta;
+}
+
+ul.kontakter{
+  list-style-type: circle;
+}
+
+h2.morekontakt{
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+h3.facebook:hover{
+color: Blue;
+}
+h3.twitter:hover{
+color: Blue;
+}
+h3.instagram:hover{
+color: Blue;
+}
+h3.youtube:hover{
+color: Blue;
+}
+h3.twitch:hover{
+color: Blue;
 }
 
 footer{
@@ -161,6 +180,14 @@ footer{
   background-color: #232323;
   grid-area: footer;
   position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3.copyright{
+margin: 0;
 }
 
 
