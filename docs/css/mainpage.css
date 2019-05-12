@@ -1,0 +1,176 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  height: 100px;
+  background-color: #232323;
+  grid-area: header;
+}
+
+
+#pacman{
+width: 100%;
+height: 100%;
+background-color: black;
+grid-area: pacman;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#titelpac{
+  width: 200px;
+  height: 50px;
+  padding-bottom: 10px;
+  margin: 20px;
+  background-color: Pink;
+  text-align: center;
+}
+
+#bildpac{
+  width: ;
+  height: ;
+  padding-bottom: ;
+  margin: 20px;
+  background-color: Pink;
+}
+
+#infopac{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 20px;
+  background-color: Pink;
+}
+
+#länkarpac{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: Blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#merpac{
+width: 100px;
+height: 50px;
+padding: 20px;
+background-color: Pink;
+clor: black;
+
+}
+
+a:link,a:visited{
+  background-color:white;
+  text-decoration:none;
+  color: black;
+}
+
+#merpac:hover{
+  background-color:white;
+}
+
+#downloadpac{
+width: 100px;
+height: 50px;
+padding: 20px;
+margin: 20px;
+background-color: Pink;
+}
+
+#downloadpac:hover{
+  background-color:white;
+}
+
+#leveleditor{
+  width: 100%;
+  height: 100%;
+  background-color: #FFFE00;
+  grid-area: leveleditor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#titeledit{
+  width: 200px;
+  height: 50px;
+  padding-bottom: 10px;
+  margin: 20px;
+  background-color: Pink;
+  text-align: center;
+}
+
+#infoedit{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 20px;
+  background-color: Pink;
+  border-radius: 40px;
+}
+
+#länkaredit{
+  width: 100%;
+  height: 100%;
+  background-color: Green;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#meredit{
+width: 100px;
+height: 50px;
+padding: 20px;
+margin: 20px;
+background-color: Pink;
+}
+
+#meredit:hover{
+  background-color:white;
+}
+
+#downloadedit{
+width: 100px;
+height: 50px;
+padding: 20px;
+margin: 20px;
+background-color: Pink;
+}
+
+#downloadedit:hover{
+  background-color:white;
+}
+
+#kontaktinfo{
+  width: 100%;
+  height: 100%;
+  background-color: Grey;
+  grid-area: kontakta;
+}
+
+footer{
+  width: 100%;
+  height: 30px;
+  background-color: #232323;
+  grid-area: footer;
+  position: fixed;
+}
+
+
+.grid-container {
+  height:100%;
+  display: grid;
+  grid-template-areas:
+    "header header header header header header"
+    "pacman pacman pacman leveleditor leveleditor leveleditor"
+    "kontakta kontakta kontakta kontakta kontakta kontakta"
+    "footer footer footer footer footer footer"
+    ;
+}
