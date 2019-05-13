@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
+  background-color: Grey;
 }
 
 a:link, a:visited {
@@ -205,6 +206,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   display: grid;
   grid-template-areas:
     "snabbkontakt copyright . "
@@ -212,7 +214,6 @@ footer {
 }
 
 #snabbkontakt h3 {
-  margin-left: 20px;
   margin-top: 0;
   color: #e8e8e8;
   grid-area: snabbkontakt;

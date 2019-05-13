@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
+  background-color: black;
 }
 
 a:link, a:visited {
@@ -131,8 +132,6 @@ h3.copyright {
   grid-template-areas:
     "header header header header header header"
     "pacman pacman pacman pacman pacman pacman"
-    "leveleditor leveleditor leveleditor leveleditor leveleditor leveleditor"
-    "kontakta kontakta kontakta kontakta kontakta kontakta"
     "footer footer footer footer footer footer"
   ;
 }
@@ -170,8 +169,6 @@ h3.copyright {
     grid-template-areas:
       "header header header header header header"
       "pacman pacman pacman pacman pacman pacman"
-      "leveleditor leveleditor leveleditor leveleditor leveleditor leveleditor"
-      "kontakta kontakta kontakta kontakta kontakta kontakta"
       "footer footer footer footer footer footer"
     ;
   }
@@ -200,8 +197,6 @@ h3.copyright {
     grid-template-areas:
       "header header header header header header"
       "pacman pacman pacman pacman pacman pacman"
-      "leveleditor leveleditor leveleditor leveleditor leveleditor leveleditor"
-      "kontakta kontakta kontakta kontakta kontakta kontakta"
       "footer footer footer footer footer footer"
     ;
   }
